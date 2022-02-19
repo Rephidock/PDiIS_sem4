@@ -1,6 +1,5 @@
 from __future__ import annotations
-from typing import Callable, List
-from queue import Queue
+from typing import List
 
 
 class Entity:
@@ -11,7 +10,6 @@ class Entity:
     id = 0
 
     def __init__(self):
-        self.init_changes()
         self.init_relations()
 
         self.id = Entity.id
@@ -21,26 +19,6 @@ class Entity:
 
     def step(self) -> None:
         self.lifetime += 1
-
-    #region //// Changes queue
-
-    # During a step of simulation
-    # no change should have impact on another entity
-    # Thus a queue is used
-    __changes: Queue[Callable[[Entity], None]]
-
-    def init_changes(self):
-        self.__changes = Queue()
-
-    def enqueue_changes(self, *args: Callable[[Entity], None]) -> None:
-        for arg in args:
-            self.__changes.put(arg)
-
-    def perform_changes(self) -> None:
-        while not self.__changes.empty():
-            self.__changes.get()(self)
-
-    #endregion
 
     #region //// Parent-child-neighbour
 
