@@ -1,5 +1,4 @@
 from __future__ import annotations
-from typing import List
 
 
 class Entity:
@@ -22,9 +21,9 @@ class Entity:
 
     #region //// Parent-child-neighbour
 
-    parents: List[Entity]
-    children: List[Entity]
-    neighbours: List[Entity]
+    parents: list[Entity]
+    children: list[Entity]
+    neighbours: list[Entity]
 
     def init_relations(self):
         self.parents = list()
