@@ -18,14 +18,6 @@ class Entity:
 
     #region //// Stepping
 
-    def root_step(self) -> None:
-        self.begin_step()
-        self.begin_step_children()
-        self.step()
-        self.step_children()
-        self.end_step()
-        self.end_step_children()
-
     def begin_step(self) -> None:
         self.lifetime += 1
 
@@ -79,3 +71,14 @@ class Entity:
             neighbour.neighbours.append(self)
 
     #endregion
+
+
+class RootEntity(Entity):
+
+    def root_step(self) -> None:
+        self.begin_step()
+        self.begin_step_children()
+        self.step()
+        self.step_children()
+        self.end_step()
+        self.end_step_children()
