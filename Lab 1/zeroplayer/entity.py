@@ -16,6 +16,16 @@ class Entity:
 
         self.lifetime = 0
 
+    #region //// Stepping
+
+    def root_step(self) -> None:
+        self.begin_step()
+        self.begin_step_children()
+        self.step()
+        self.step_children()
+        self.end_step()
+        self.end_step_children()
+
     def begin_step(self) -> None:
         self.lifetime += 1
 
@@ -24,6 +34,23 @@ class Entity:
 
     def end_step(self) -> None:
         pass
+
+    def begin_step_children(self) -> None:
+        for child in self.children:
+            child.begin_step()
+            child.begin_step_children()
+
+    def step_children(self) -> None:
+        for child in self.children:
+            child.step()
+            child.step_children()
+
+    def end_step_children(self) -> None:
+        for child in self.children:
+            child.end_step()
+            child.end_step_children()
+
+    #endregion
 
     #region //// Parent-child-neighbour
 
