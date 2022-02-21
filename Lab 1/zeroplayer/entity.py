@@ -16,8 +16,14 @@ class Entity:
 
         self.lifetime = 0
 
-    def step(self) -> None:
+    def begin_step(self) -> None:
         self.lifetime += 1
+
+    def step(self) -> None:
+        pass
+
+    def end_step(self) -> None:
+        pass
 
     #region //// Parent-child-neighbour
 
