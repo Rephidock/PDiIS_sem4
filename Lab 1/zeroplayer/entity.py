@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import Optional
 
 
 class Entity:
@@ -46,29 +47,33 @@ class Entity:
 
     #region //// Parent-child-neighbour
 
-    parents: list[Entity]
+    parent: Optional[Entity]
     children: list[Entity]
     neighbours: list[Entity]
 
     def init_relations(self):
-        self.parents = list()
+        self.parent = None
         self.children = list()
         self.neighbours = list()
-
-    def add_parents(self, *args: Entity) -> None:
-        for parent in args:
-            self.parents.append(parent)
-            parent.children.append(self)
 
     def add_children(self, *args: Entity) -> None:
         for child in args:
             self.children.append(child)
-            child.parents.append(self)
+            child.replace_parent(self)
 
     def add_neighbours(self, *args: Entity) -> None:
         for neighbour in args:
             self.neighbours.append(neighbour)
             neighbour.neighbours.append(self)
+
+    def replace_parent(self, new_parent: Optional[Entity]) -> None:
+        if not (self.parent is None):
+            self.parent.remove_child(self)
+        self.parent = new_parent
+
+    def remove_child(self, child: Entity) -> None:
+        self.children = list(filter(lambda entity, target_id=child.id: entity.id != target_id, self.children))
+        child.parent = None
 
     #endregion
 
