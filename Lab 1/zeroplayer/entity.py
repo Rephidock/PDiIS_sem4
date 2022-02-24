@@ -69,6 +69,8 @@ class Entity:
     def replace_parent(self, new_parent: Optional[Entity]) -> None:
         if not (self.parent is None):
             self.parent.remove_child(self)
+        if not (new_parent is None):
+            new_parent.add_children(self)
         self.parent = new_parent
 
     def remove_child(self, child: Entity) -> None:
