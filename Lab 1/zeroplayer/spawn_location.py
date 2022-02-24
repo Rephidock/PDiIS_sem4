@@ -10,4 +10,4 @@ class SpawnLocation(Entity):
     def begin_step(self) -> None:
         super().begin_step()
         for rule in self.__class__._rules:
-            rule.spawn(self)
+            rule.spawn_as_child(self)
