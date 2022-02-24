@@ -75,6 +75,14 @@ class Entity:
         self.children = list(filter(lambda entity, target_id=child.id: entity.id != target_id, self.children))
         child.parent = None
 
+    def remove_neighbour(self, neighbour: Entity) -> None:
+        self.neighbours = list(
+            filter(lambda entity, target_id=neighbour.id: entity.id != target_id, self.neighbours)
+        )
+        neighbour.neighbours = list(
+            filter(lambda entity, target_id=self.id: entity.id != target_id, neighbour.neighbours)
+        )
+
     #endregion
 
 
