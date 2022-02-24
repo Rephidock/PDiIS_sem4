@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Optional, Type
+from typing import Type
 from utils.randUtils import chance
 from zeroplayer.entity import Entity
 
@@ -16,7 +16,6 @@ class SpawnRule:
         self.__chance = chance_of_spawn
 
     def spawn(self, parent: Entity) -> None:
-
         if (parent.lifetime % self.__frequency != 0): return
         if not (chance(self.__chance)): return
         parent.add_children(self.__entity_type())
