@@ -19,13 +19,3 @@ class SpawnRule:
         if (parent.lifetime % self.__frequency != 0): return
         if not (chance(self.__chance)): return
         parent.add_children(self.__entity_type())
-
-
-class SpawnLocation(Entity):
-
-    _rules: tuple[SpawnRule] = ()
-
-    def begin_step(self) -> None:
-        super().begin_step()
-        for rule in self.__class__._rules:
-            rule.spawn(self)
