@@ -12,8 +12,8 @@ The same event will be run among all entities, depth first.
 ### What is done during each event
 
 - Begin step
-  - Incrementing lifetime
-  - Spawning children
+  - Entity: incrementing lifetime
+  - SpawnerLocation: spawning
 - Step
   - ...
 - End step
