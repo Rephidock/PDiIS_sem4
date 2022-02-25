@@ -11,7 +11,6 @@ class Entity:
 
     def __init__(self):
         self.init_parent_child()
-        self.init_neighbour()
 
         self.id = Entity.id
         Entity.id += 1
@@ -71,27 +70,17 @@ class Entity:
         self.children = list(filter(lambda entity, target_id=child.id: entity.id != target_id, self.children))
         child.parent = None
 
-    #endregion
+    def transfer_children(self, new_parent: Optional[Entity]) -> None:
+        # Directly break parent link
+        for child in self.children:
+            child.parent = None
 
-    #region //// Neighbour
+        # Directly break child link
+        children = self.children
+        self.children = list()
 
-    neighbours: list[Entity]
-
-    def init_neighbour(self):
-        self.neighbours = list()
-
-    def add_neighbours(self, *args: Entity) -> None:
-        for neighbour in args:
-            self.neighbours.append(neighbour)
-            neighbour.neighbours.append(self)
-
-    def remove_neighbour(self, neighbour: Entity) -> None:
-        self.neighbours = list(
-            filter(lambda entity, target_id=neighbour.id: entity.id != target_id, self.neighbours)
-        )
-        neighbour.neighbours = list(
-            filter(lambda entity, target_id=self.id: entity.id != target_id, neighbour.neighbours)
-        )
+        # Make new parent <-> child links
+        new_parent.add_children(*children)
 
     #endregion
 

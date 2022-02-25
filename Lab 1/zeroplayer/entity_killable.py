@@ -7,10 +7,7 @@ from spawn_rule import SpawnRule
 class EntityKillable(Entity):
 
     _corpse_rules: tuple[SpawnRule] = ()
-
-    # Only the last corpse entity will be used
-    _transfer_children: bool = False
-    _transfer_neighbours: bool = False
+    _transfer_children: bool = False        # Only the last corpse entity will be used
 
     __killed: bool
 
@@ -33,17 +30,9 @@ class EntityKillable(Entity):
         # Transfer children
         if self._transfer_children:
             if not (last_corpse is None):
-                last_corpse.add_children(*self.children)
+                self.transfer_children(last_corpse)
 
-        # Transfer neighbours
-        if self._transfer_neighbours:
-            if not (last_corpse is None):
-                for neighbour in self.neighbours:
-                    neighbour.add_neighbours(last_corpse)
-
-        # Remove self
+        # Unlink self
         if not (self.parent is None):
             self.parent.remove_child(self)
 
-        for neighbour in self.neighbours:
-            neighbour.remove_neighbour(self)
