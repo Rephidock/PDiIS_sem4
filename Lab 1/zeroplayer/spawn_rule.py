@@ -25,7 +25,7 @@ class SpawnRule:
         if not (chance(self.__chance)): return None                     # Chance check
         return self.__entity_type()
 
-    def spawn_as_child(self, parent: Entity) -> None:
+    def spawn_as_child(self, parent: Optional[Entity]) -> None:
         child = self.spawn()
-        if (child is None): return
+        if (child is None or parent is None): return
         parent.add_children(child)
