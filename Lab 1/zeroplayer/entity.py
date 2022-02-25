@@ -10,7 +10,8 @@ class Entity:
     id = 0
 
     def __init__(self):
-        self.init_relations()
+        self.init_parent_child()
+        self.init_neighbour()
 
         self.id = Entity.id
         Entity.id += 1
@@ -45,26 +46,19 @@ class Entity:
 
     #endregion
 
-    #region //// Parent-child-neighbour
+    #region //// Parent-child
 
     parent: Optional[Entity]
     children: list[Entity]
-    neighbours: list[Entity]
 
-    def init_relations(self):
+    def init_parent_child(self):
         self.parent = None
         self.children = list()
-        self.neighbours = list()
 
     def add_children(self, *args: Entity) -> None:
         for child in args:
             self.children.append(child)
             child.replace_parent(self)
-
-    def add_neighbours(self, *args: Entity) -> None:
-        for neighbour in args:
-            self.neighbours.append(neighbour)
-            neighbour.neighbours.append(self)
 
     def replace_parent(self, new_parent: Optional[Entity]) -> None:
         if not (self.parent is None):
@@ -76,6 +70,20 @@ class Entity:
     def remove_child(self, child: Entity) -> None:
         self.children = list(filter(lambda entity, target_id=child.id: entity.id != target_id, self.children))
         child.parent = None
+
+    #endregion
+
+    #region //// Neighbour
+
+    neighbours: list[Entity]
+
+    def init_neighbour(self):
+        self.neighbours = list()
+
+    def add_neighbours(self, *args: Entity) -> None:
+        for neighbour in args:
+            self.neighbours.append(neighbour)
+            neighbour.neighbours.append(self)
 
     def remove_neighbour(self, neighbour: Entity) -> None:
         self.neighbours = list(
