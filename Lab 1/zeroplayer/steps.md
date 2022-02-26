@@ -15,6 +15,7 @@ The same event will be run among all entities, depth first.
   - Entity: incrementing lifetime
   - SpawnerLocation: spawning
 - Step
-  - ...
+  - Main logic of entities
 - End step
+  - Movement of entities
   - Killing entities set as killed
