@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Optional
-from entity import Entity
-from spawn_rule import SpawnRule
+from zeroplayer.entity import Entity
+from zeroplayer.spawn_rule import SpawnRule
 
 
 class EntityKillable(Entity):

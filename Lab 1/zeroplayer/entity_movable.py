@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import Optional
-from entity import Entity
+from zeroplayer.entity import Entity
 
 
 class EntityMovable(Entity):
