@@ -17,6 +17,6 @@ The same event will be run among all child sentities, depth first.
 - Step
   - Main logic of entities
 - End step
+  - Creature: Checking against max_lifetime
   - Movable: Movement of entities
-  - Killable: Checking against max_lifetime
   - Killable: Killing entities set as killed

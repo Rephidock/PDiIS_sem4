@@ -9,7 +9,6 @@ class EntityKillable(Entity):
     # Class variables
     _corpse_rules: tuple[SpawnRule] = ()
     _transfer_children: bool = False        # Only the last corpse entity will be used
-    _max_lifetime: Optional[int] = None
 
     # Instance variables
     __killed: bool
@@ -23,10 +22,6 @@ class EntityKillable(Entity):
 
     def end_step(self) -> None:
         super().end_step()
-
-        # Max lifetime
-        if (self.__class__._max_lifetime is not None) and (self.lifetime >= self.__class__._max_lifetime):
-            self.kill()
 
         # Guard
         if not self.__killed:
