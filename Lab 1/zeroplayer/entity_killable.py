@@ -6,9 +6,12 @@ from zeroplayer.spawn_rule import SpawnRule
 
 class EntityKillable(Entity):
 
+    # Class variables
     _corpse_rules: tuple[SpawnRule] = ()
     _transfer_children: bool = False        # Only the last corpse entity will be used
+    _max_lifetime: Optional[int] = None
 
+    # Instance variables
     __killed: bool
 
     def __init__(self):
@@ -20,7 +23,14 @@ class EntityKillable(Entity):
 
     def end_step(self) -> None:
         super().end_step()
-        if not self.__killed: return
+
+        # Max lifetime
+        if (self.__class__._max_lifetime is not None) and (self.lifetime >= self.__class__._max_lifetime):
+            self.kill()
+
+        # Guard
+        if not self.__killed:
+            return
 
         # Create corpses
         last_corpse: Optional[Entity] = None
@@ -35,4 +45,3 @@ class EntityKillable(Entity):
         # Unlink self
         if not (self.parent is None):
             self.parent.remove_child(self)
-
