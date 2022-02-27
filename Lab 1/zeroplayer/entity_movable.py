@@ -9,7 +9,7 @@ class EntityMovable(Entity):
 
     def __init__(self):
         super().__init__()
-        __move_target = None
+        self.__move_target = None
 
     def move(self, target: Optional[Entity]):
         self.__move_target = target

@@ -16,7 +16,7 @@ class EntityKillable(Entity):
 
     def __init__(self):
         super().__init__()
-        __killed = False
+        self.__killed = False
 
     def kill(self):
         self.__killed = True
