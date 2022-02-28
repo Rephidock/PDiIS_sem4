@@ -4,10 +4,9 @@ from typing import Optional
 
 class Entity:
 
-    id: int
-    lifetime: int
+    id: int = 0
 
-    id = 0
+    lifetime: int
 
     def __init__(self):
         self.init_parent_child()
