@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Optional
+from typing import Optional, Type
 
 
 class Entity:
@@ -85,6 +85,13 @@ class Entity:
 
         # Make new parent <-> child links
         new_parent.add_children(*children)
+
+    def children_by_type(self, desired_class: Type[Entity]) -> list[Entity]:
+        ret = list()
+        for child in self.children.values():
+            if issubclass(desired_class, child.__class__):
+                ret.append(child)
+        return ret
 
     #endregion
 
