@@ -18,5 +18,6 @@ The same event will be run among all child sentities, depth first.
   - Main logic of entities
 - End step
   - Creature: Checking against max_lifetime
+  - Resource: Checking against threshold
   - Movable: Movement of entities
   - Killable: Killing entities set as killed
