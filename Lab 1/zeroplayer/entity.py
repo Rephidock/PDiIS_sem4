@@ -28,18 +28,22 @@ class Entity:
     def end_step(self) -> None:
         pass
 
+    #endregion
+
+    #region //// Stepping children
+
     def begin_step_children(self) -> None:
-        for child in self.children:
+        for child in self.children.values():
             child.begin_step()
             child.begin_step_children()
 
     def step_children(self) -> None:
-        for child in self.children:
+        for child in self.children.values():
             child.step()
             child.step_children()
 
     def end_step_children(self) -> None:
-        for child in self.children:
+        for child in self.children.values():
             child.end_step()
             child.end_step_children()
 
@@ -48,15 +52,15 @@ class Entity:
     #region //// Parent-child
 
     parent: Optional[Entity]
-    children: list[Entity]
+    children: dict[int, Entity]
 
     def init_parent_child(self):
         self.parent = None
-        self.children = list()
+        self.children = dict()
 
     def add_children(self, *args: Entity) -> None:
         for child in args:
-            self.children.append(child)
+            self.children[child.id] = child
             child.replace_parent(self)
 
     def replace_parent(self, new_parent: Optional[Entity]) -> None:
@@ -67,17 +71,18 @@ class Entity:
         self.parent = new_parent
 
     def remove_child(self, child: Entity) -> None:
-        self.children = list(filter(lambda entity, target_id=child.id: entity.id != target_id, self.children))
-        child.parent = None
+        child = self.children.pop(child.id, None)
+        if child is not None:
+            child.parent = None
 
     def transfer_children(self, new_parent: Optional[Entity]) -> None:
         # Directly break parent link
-        for child in self.children:
+        for child in self.children.values():
             child.parent = None
 
         # Directly break child link
         children = self.children
-        self.children = list()
+        self.children.clear()
 
         # Make new parent <-> child links
         new_parent.add_children(*children)
