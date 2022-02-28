@@ -7,13 +7,14 @@ Each entity has 3 step "events", in order of execution:
 - Step
 - End step
 
-The same event will be run among all child sentities, depth first.
+The same event will be run among all child entities, depth first.
 
 ### What is done during each event
 
 - Begin step
   - Entity: incrementing lifetime
   - SpawnerLocation: spawning
+  - Resource: Decay
 - Step
   - Main logic of entities
 - End step

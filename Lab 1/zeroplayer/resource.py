@@ -6,6 +6,7 @@ class Resource(EntityKillable):
 
     # Class
     _threshold: float = 0
+    _decay: float = 0
 
     # Instance
     _value: float
@@ -16,6 +17,10 @@ class Resource(EntityKillable):
 
     def take(self, value: float) -> None:
         self._value -= value
+
+    def begin_step(self) -> None:
+        super().begin_step()
+        self._value -= self.__class__._decay
 
     def end_step(self) -> None:
         # Check resource value
