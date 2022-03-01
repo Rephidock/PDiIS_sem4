@@ -10,7 +10,7 @@ class Creature(EntityKillable, EntityMovable):
     _max_lifetime: Optional[int] = None
     _starting_satiety: float = 0.8
     _hunger_rate: float = 0.1
-    _eating_threshold: float = 0.4  # 0.0 - 1.0
+    _sated_threshold: float = 0.4  # 0.0 - 1.0
 
     # Instance variables
     _satiety: float  # 0.0-1.0
@@ -27,7 +27,7 @@ class Creature(EntityKillable, EntityMovable):
         self._satiety -= self.__class__._hunger_rate
 
         # Eating
-        if self._satiety <= self.__class__._eating_threshold:
+        if self._satiety <= self.__class__._sated_threshold:
             self.eat()
 
     def end_step(self) -> None:
