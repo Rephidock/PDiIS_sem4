@@ -15,11 +15,12 @@ The same event will be run among all child entities, depth first.
   - Entity: incrementing lifetime
   - SpawnerLocation: spawning
   - Resource: Decay
-  - Creature: Hunger, Eating logic, Starving check
+  - Creature: Hunger, Eating logic
 - Step
   - Main logic of entities
 - End step
   - Creature: Checking against max_lifetime
+  - Creature: Starving check
   - Resource: Checking against threshold
   - Movable: Movement of entities
   - Killable: Killing entities set as killed

@@ -23,7 +23,6 @@ class Creature(EntityKillable, EntityMovable):
         pass
 
     def begin_step(self) -> None:
-
         # Hunger
         self._satiety -= self.__class__._hunger_rate
 
@@ -31,13 +30,13 @@ class Creature(EntityKillable, EntityMovable):
         if self._satiety <= self.__class__._eating_threshold:
             self.eat()
 
-        # Starvation
-        if self._satiety <= 0:
-            self.kill()
-
     def end_step(self) -> None:
         # Max lifetime
         if (self.__class__._max_lifetime is not None) and (self.lifetime >= self.__class__._max_lifetime):
+            self.kill()
+
+        # Starvation
+        if self._satiety <= 0:
             self.kill()
 
         # Note MRO: Move, then kill
