@@ -27,6 +27,9 @@ class SpawnRule:
 
         self.__call_counter = 0
 
+        if self.__period < 1:
+            raise ArithmeticError("")
+
     def spawn(self) -> Optional[Entity]:
         self.__call_counter += 1
 
