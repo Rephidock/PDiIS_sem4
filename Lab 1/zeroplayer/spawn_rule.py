@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import Optional, Type, Any
-from utils.randUtils import chance
+from utils.rand_ext import chance
 from zeroplayer.entity import Entity
 from utils.activator import Activator
 
