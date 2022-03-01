@@ -3,6 +3,19 @@ from typing import Optional, Type
 
 
 class Entity:
+    """
+    Base class for all things in a zero player step simulation.
+
+    Each entity has
+      - a (sequential) numeric id
+      - lifetime counter
+      - optional parent weak reference
+      - children, stored in an id -> Entity dict
+      - step events (see also: steps.md)
+
+    When inheriting, extend the step methods instead of simple override.
+    # Can be done via super() calls
+    """
 
     id: int = 0
 
@@ -31,6 +44,9 @@ class Entity:
 
     #region //// Stepping children
 
+    # Separated from normal step methods
+    # because of inheritance and super()
+
     def begin_step_children(self) -> None:
         for child in self.children.values():
             child.begin_step()
@@ -49,6 +65,8 @@ class Entity:
     #endregion
 
     #region //// Parent-child
+
+    # The link is always 2-way
 
     parent: Optional[Entity]
     children: dict[int, Entity]
@@ -87,6 +105,8 @@ class Entity:
         new_parent.add_children(*children)
 
     def children_by_type(self, desired_class: Type[Entity]) -> list[Entity]:
+        """Returns a list with all children which are a subclass of the given"""
+
         ret = list()
         for child in self.children.values():
             if issubclass(desired_class, child.__class__):
@@ -97,6 +117,10 @@ class Entity:
 
 
 class RootEntity(Entity):
+    """
+    The root of the zero player simulation.
+    Enforces correct step method execution with root_step()
+    """
 
     def root_step(self) -> None:
         self.begin_step()

@@ -1,5 +1,5 @@
 
-### Step events
+### Step events overview
 
 Each entity has 3 step "events", in order of execution:
 
@@ -7,15 +7,25 @@ Each entity has 3 step "events", in order of execution:
 - Step
 - End step
 
-The same event will be run among all child entities, depth first.
+The same event will be run among  all entities,
+starting with the root entity and continuing
+depth first, executing event on the way down.
 
-### What is done during each event
+This was done to separate calculation of actions
+affecting other entities
+from performing them.
+
+\*_children step events exist because of
+inheritance and super() calls.
+
+### Event contents
 
 - Begin step
   - Entity: incrementing lifetime
   - SpawnerLocation: spawning
   - Resource: Decay
-  - Creature: Hunger, Eating logic
+  - Creature: Hunger
+  - Creature: Eating logic
 - Step
   - Main logic of entities
 - End step

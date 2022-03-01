@@ -4,6 +4,11 @@ from zeroplayer.entity import Entity
 
 
 class EntityMovable(Entity):
+    """
+    An entity that can move or be moved.
+    If during a step multiple moves need to be performed,
+    a random one is selected.
+    """
 
     __move_target: list[Entity]
 

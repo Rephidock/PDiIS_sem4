@@ -4,6 +4,10 @@ from zeroplayer.spawn_rule import SpawnRule
 
 
 class SpawnLocation(Entity):
+    """
+    An entity that creates new entities via spawn rules.
+    Can create new entities every step.
+    """
 
     _rules: tuple[SpawnRule] = ()
 

@@ -6,6 +6,9 @@ from utils.activator import Activator
 
 
 class SpawnRule:
+    """
+    A rule by which entities are created.
+    """
 
     __entity_type: Type[Entity]
     __entity_args: tuple[Any]

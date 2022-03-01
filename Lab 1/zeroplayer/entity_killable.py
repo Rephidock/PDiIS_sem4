@@ -5,6 +5,11 @@ from zeroplayer.spawn_rule import SpawnRule
 
 
 class EntityKillable(Entity):
+    """
+    An entity that can be killed or destroyed.
+    When this entity is destroyed it may
+    create residue entities (new entities) in its place.
+    """
 
     # Class variables
     _residue_rules: tuple[SpawnRule] = ()
