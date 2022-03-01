@@ -15,6 +15,7 @@ The same event will be run among all child entities, depth first.
   - Entity: incrementing lifetime
   - SpawnerLocation: spawning
   - Resource: Decay
+  - Creature: Hunger, Eating logic, Starving check
 - Step
   - Main logic of entities
 - End step
