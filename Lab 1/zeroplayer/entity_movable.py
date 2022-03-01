@@ -1,21 +1,25 @@
 from __future__ import annotations
-from typing import Optional
+import utils.rand_ext as rand_ext
 from zeroplayer.entity import Entity
 
 
 class EntityMovable(Entity):
 
-    __move_target: Optional[Entity]
+    __move_target: list[Entity]
 
     def __init__(self):
         super().__init__()
-        self.__move_target = None
+        self.__move_target = list()
 
-    def move(self, target: Optional[Entity]):
-        self.__move_target = target
+    def move(self, target: Entity):
+        self.__move_target.append(target)
 
     def end_step(self) -> None:
         super().end_step()
-        if self.__move_target is None: return
 
-        self.replace_parent(self.__move_target)
+        # No movement
+        if len(self.__move_target) < 1:
+            return
+
+        # Pick move target at random
+        self.replace_parent(rand_ext.list_pick_random(self.__move_target))
