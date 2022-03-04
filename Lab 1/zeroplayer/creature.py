@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import Optional
 from zeroplayer.entity_movable import EntityMovable
 from zeroplayer.entity_killable import EntityKillable
+from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
 class Creature(EntityKillable, EntityMovable):
@@ -19,10 +20,16 @@ class Creature(EntityKillable, EntityMovable):
         super().__init__()
         self._satiety = self.__class__._starting_satiety
 
+    def step(self, queue: ActionPriorityQueue) -> None:
+        queue.enqueue(StepPriority.HUNGER, self, self.__handle_hunger)
+        queue.enqueue(StepPriority.DECAY, self, self.__handle_death_age)
+        queue.enqueue(StepPriority.DECAY, self, self.__handle_death_starvation)
+        super().step(queue)
+
     def eat(self) -> None:
         pass
 
-    def begin_step(self) -> None:
+    def __handle_hunger(self) -> None:
         # Hunger
         self._satiety -= self.__class__._hunger_rate
 
@@ -30,14 +37,11 @@ class Creature(EntityKillable, EntityMovable):
         if self._satiety <= self.__class__._sated_threshold:
             self.eat()
 
-    def end_step(self) -> None:
-        # Max lifetime
+    def __handle_death_age(self) -> None:
         if (self.__class__._max_lifetime is not None) and (self.lifetime >= self.__class__._max_lifetime):
             self.kill()
 
-        # Starvation
+    def __handle_death_starvation(self) -> None:
         if self._satiety <= 0:
             self.kill()
 
-        # Note MRO: Move, then kill
-        super().end_step()

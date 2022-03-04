@@ -1,6 +1,6 @@
-from __future__ import annotations
 from typing import Optional
 from zeroplayer.entity import Entity
+from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 from zeroplayer.spawn_rule import SpawnRule
 
 
@@ -22,11 +22,14 @@ class EntityKillable(Entity):
         super().__init__()
         self.__killed = False
 
+    def step(self, queue: ActionPriorityQueue) -> None:
+        queue.enqueue(StepPriority.KILL, self, self.__handle_death)
+        super().step(queue)
+
     def kill(self):
         self.__killed = True
 
-    def end_step(self) -> None:
-        super().end_step()
+    def __handle_death(self) -> None:
 
         # Guard
         if not self.__killed:

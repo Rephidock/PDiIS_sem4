@@ -1,5 +1,6 @@
 from __future__ import annotations
 from zeroplayer.entity_killable import EntityKillable
+from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
 class Resource(EntityKillable):
@@ -15,17 +16,18 @@ class Resource(EntityKillable):
         super().__init__()
         self._value = initial_value
 
+    def step(self, queue: ActionPriorityQueue) -> None:
+        queue.enqueue(StepPriority.DECAY, self, self.__handle_decay)
+        queue.enqueue(StepPriority.DECAY, self, self.__handle_exhaustion)
+        super().step(queue)
+
     def take(self, value: float) -> None:
         self._value -= value
 
-    def begin_step(self) -> None:
-        super().begin_step()
+    def __handle_decay(self) -> None:
         self._value -= self.__class__._decay
 
-    def end_step(self) -> None:
+    def __handle_exhaustion(self) -> None:
         # Check resource value
         if self._value <= self.__class__._threshold:
             self.kill()
-
-        # Move, then kill
-        super().end_step()

@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import Optional, Type
+from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
 class Entity:
@@ -9,12 +10,12 @@ class Entity:
     Each entity has
       - a (sequential) numeric id
       - lifetime counter
-      - optional parent weak reference
-      - children, stored in an id -> Entity dict
-      - step events (see also: steps.md)
+      - optional parent reference
+      - children, stored in an [id -> Entity] dict
+      - step event (see also: steps.md)
 
-    When inheriting, extend the step methods instead of simple override.
-    # Can be done via super() calls
+    When inheriting, extend the step method instead of simple override:
+    Perform super().step(queue) calls at the end.
     """
 
     id: int = 0
@@ -22,7 +23,7 @@ class Entity:
     lifetime: int
 
     def __init__(self):
-        self.init_parent_child()
+        self.__init_parent_child()
 
         self.id = Entity.id
         Entity.id += 1
@@ -31,36 +32,16 @@ class Entity:
 
     #region //// Stepping
 
-    def begin_step(self) -> None:
+    def __handle_lifetime(self) -> None:
         self.lifetime += 1
 
-    def step(self) -> None:
-        pass
+    def step(self, queue: ActionPriorityQueue) -> None:
+        # Self
+        queue.enqueue(StepPriority.LIFETIME, self, self.__handle_lifetime)
 
-    def end_step(self) -> None:
-        pass
-
-    #endregion
-
-    #region //// Stepping children
-
-    # Separated from normal step methods
-    # because of inheritance and super()
-
-    def begin_step_children(self) -> None:
+        # Children
         for child in self.children.values():
-            child.begin_step()
-            child.begin_step_children()
-
-    def step_children(self) -> None:
-        for child in self.children.values():
-            child.step()
-            child.step_children()
-
-    def end_step_children(self) -> None:
-        for child in self.children.values():
-            child.end_step()
-            child.end_step_children()
+            child.step(queue)
 
     #endregion
 
@@ -71,7 +52,7 @@ class Entity:
     parent: Optional[Entity]
     children: dict[int, Entity]
 
-    def init_parent_child(self):
+    def __init_parent_child(self):
         self.parent = None
         self.children = dict()
 
@@ -119,13 +100,20 @@ class Entity:
 class RootEntity(Entity):
     """
     The root of the zero player simulation.
-    Enforces correct step method execution with root_step()
+    Begins the step call chain.
+    Stores and performs actions.
     """
 
+    __actions: ActionPriorityQueue
+
+    def __init__(self):
+        super().__init__()
+        self.__actions = ActionPriorityQueue()
+
     def root_step(self) -> None:
-        self.begin_step()
-        self.begin_step_children()
-        self.step()
-        self.step_children()
-        self.end_step()
-        self.end_step_children()
+
+        # Get actions
+        self.step(self.__actions)
+
+        # Perform actions
+        self.__actions.perform()

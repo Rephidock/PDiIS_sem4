@@ -1,6 +1,6 @@
-from __future__ import annotations
 from random import choice
 from zeroplayer.entity import Entity
+from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
 class EntityMovable(Entity):
@@ -16,11 +16,14 @@ class EntityMovable(Entity):
         super().__init__()
         self.__move_target = list()
 
+    def step(self, queue: ActionPriorityQueue) -> None:
+        queue.enqueue(StepPriority.KILL, self, self.__handle_movement)
+        super().step(queue)
+
     def move(self, target: Entity):
         self.__move_target.append(target)
 
-    def end_step(self) -> None:
-        super().end_step()
+    def __handle_movement(self) -> None:
 
         # No movement
         if len(self.__move_target) < 1:

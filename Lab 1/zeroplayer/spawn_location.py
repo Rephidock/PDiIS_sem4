@@ -1,6 +1,6 @@
-from __future__ import annotations
 from zeroplayer.entity import Entity
 from zeroplayer.spawn_rule import SpawnRule
+from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
 class SpawnLocation(Entity):
@@ -11,7 +11,10 @@ class SpawnLocation(Entity):
 
     _rules: tuple[SpawnRule] = ()
 
-    def begin_step(self) -> None:
-        super().begin_step()
+    def step(self, queue: ActionPriorityQueue) -> None:
+        queue.enqueue(StepPriority.SPAWN, self, self.__handle_spawn)
+        super().step(queue)
+
+    def __handle_spawn(self) -> None:
         for rule in self.__class__._rules:
             rule.spawn_as_child(self)

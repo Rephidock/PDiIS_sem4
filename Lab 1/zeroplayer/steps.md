@@ -1,36 +1,51 @@
 
-### Step events overview
+## Step method
 
-Each entity has 3 step "events", in order of execution:
+Each entity has a `step` method.
 
-- Begin step
-- Step
-- End step
+When inheriting, extend the `step` method instead of
+simple override: Perform `super().step(queue)` calls
+at the end.
 
-The same event will be run among  all entities,
-starting with the root entity and continuing
-depth first, executing event on the way down.
+The base `Entity`'s `step` method also calls
+it in all children, depth first.
 
-This was done to separate calculation of actions
-affecting other entities
-from performing them.
+A `RootEntity` begins the chain of calling `step` methods.
 
-\*_children step events exist because of
-inheritance and super() calls.
+## Action Queue
 
-### Event contents
+An action priority queue is passed into the `step` method.
 
-- Begin step
-  - Entity: incrementing lifetime
-  - SpawnerLocation: spawning
-  - Resource: Decay
+This is done to separate calculations from impact.
+
+During the step entities enqueue actions.
+Enqueueing actions is done before `super()` calls,
+thus it happens as each entity is first visited.
+
+At the end of the step all actions are performed
+in order of priorities.
+In case of a tie, the actions enqueued first
+are performed first.
+
+
+## Action priorities
+
+In order from high to low priority:
+
+- PRE
+- LIFETIME
+  - Entity: Increase lifetime
+- SPAWN
+  - SpawnLocation: spawn
+- HUNGER
   - Creature: Hunger
-  - Creature: Eating logic
-- Step
-  - Main logic of entities
-- End step
-  - Creature: Checking against max_lifetime
-  - Creature: Starving check
-  - Resource: Checking against threshold
-  - Movable: Movement of entities
-  - Killable: Killing entities set as killed
+- BEGIN 
+- NORMAL
+- END
+- MOVE 
+  - EntityMovable: Movement
+- DECAY
+  - Creature: Max age; Starvation
+  - Resource: Decay; Exhaustion
+- KILL
+  - EntityKillable: Death
