@@ -40,6 +40,8 @@ In order from high to low priority:
 - BEGIN
 - HUNGER
   - Creature: Hunger
+- DISTRIBUTE
+  - Resource: Distribution across those who requested
 - NORMAL
 - END
 - MOVE 

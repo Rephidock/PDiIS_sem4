@@ -13,6 +13,7 @@ class StepPriority(IntEnum):
 
     BEGIN = 10
     HUNGER = 15
+    DISTRIBUTE = 17
 
     NORMAL = 20
 
