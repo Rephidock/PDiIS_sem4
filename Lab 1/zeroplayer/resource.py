@@ -44,6 +44,9 @@ class Resource(EntityKillable):
             self.__value -= mult * request.value
             request.receiver(mult * request.value)
 
+        # Clear
+        self.__requests.clear()
+
     def __handle_decay(self) -> None:
         self.__value -= self._decay
 
