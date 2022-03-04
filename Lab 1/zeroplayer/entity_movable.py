@@ -1,5 +1,4 @@
 from __future__ import annotations
-import utils.rand_ext as rand_ext
 from zeroplayer.entity import Entity
 
 
@@ -27,4 +26,4 @@ class EntityMovable(Entity):
             return
 
         # Pick move target at random
-        self.replace_parent(rand_ext.list_pick_random(self.__move_target))
+        self.replace_parent(choice(self.__move_target))
