@@ -18,7 +18,7 @@ class Creature(EntityKillable, EntityMovable):
 
     def __init__(self):
         super().__init__()
-        self._satiety = self.__class__._starting_satiety
+        self._satiety = self._starting_satiety
 
     def step(self, queue: ActionPriorityQueue) -> None:
         queue.enqueue(StepPriority.HUNGER, self, self.__handle_hunger)
@@ -31,14 +31,14 @@ class Creature(EntityKillable, EntityMovable):
 
     def __handle_hunger(self) -> None:
         # Hunger
-        self._satiety -= self.__class__._hunger_rate
+        self._satiety -= self._hunger_rate
 
         # Eating
-        if self._satiety <= self.__class__._sated_threshold:
+        if self._satiety <= self._sated_threshold:
             self.eat()
 
     def __handle_death_age(self) -> None:
-        if (self.__class__._max_lifetime is not None) and (self.lifetime >= self.__class__._max_lifetime):
+        if (self._max_lifetime is not None) and (self.lifetime >= self._max_lifetime):
             self.kill()
 
     def __handle_death_starvation(self) -> None:

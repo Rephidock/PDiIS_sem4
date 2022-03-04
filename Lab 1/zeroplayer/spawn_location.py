@@ -16,5 +16,5 @@ class SpawnLocation(Entity):
         super().step(queue)
 
     def __handle_spawn(self) -> None:
-        for rule in self.__class__._rules:
+        for rule in self._rules:
             rule.spawn_as_child(self)

@@ -35,9 +35,9 @@ class EntityKillable(Entity):
         if not self.__killed:
             return
 
-        # Create corpses
+        # Create residue
         last_residue: Optional[Entity] = None
-        for rule in self.__class__._residue_rules:
+        for rule in self._residue_rules:
             last_residue = rule.spawn_as_child(self.parent)
 
         # Transfer children

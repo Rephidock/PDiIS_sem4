@@ -25,7 +25,7 @@ class Resource(EntityKillable):
         self._value -= value
 
     def __handle_decay(self) -> None:
-        self._value -= self.__class__._decay
+        self._value -= self._decay
 
     def __handle_exhaustion(self) -> None:
         # Check resource value
