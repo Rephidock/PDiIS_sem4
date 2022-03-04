@@ -37,9 +37,9 @@ In order from high to low priority:
   - Entity: Increase lifetime
 - SPAWN
   - SpawnLocation: spawn
+- BEGIN
 - HUNGER
   - Creature: Hunger
-- BEGIN 
 - NORMAL
 - END
 - MOVE 

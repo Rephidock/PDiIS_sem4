@@ -9,10 +9,10 @@ class StepPriority(IntEnum):
 
     PRE = 0
     LIFETIME = 1
-    SPAWN = 5
-    HUNGER = 6
+    SPAWN = 2
 
     BEGIN = 10
+    HUNGER = 15
 
     NORMAL = 20
 
