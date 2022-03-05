@@ -1,8 +1,11 @@
 from __future__ import annotations
 from typing import Optional, Type
+from enum import Enum
+from utils.rand_ext import chance
 from zeroplayer.entity_movable import EntityMovable
 from zeroplayer.entity_killable import EntityKillable
 from zeroplayer.resource import Resource
+from zeroplayer.spawn_rule import SpawnRule
 from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
@@ -20,17 +23,26 @@ class Creature(EntityKillable, EntityMovable):
     _desired_resource: Type[Resource] = Resource
     _resource_intake_mult: float = 1.0
 
+    # Procreation
+    _procreation_male_threshold: int = 5
+    _procreation_children_count: int = 1
+    _procreation_female_chance: float = 0.5  # 0.0 - 1.0
+    _procreation_spawn_rules: tuple[SpawnRule] = ()
+
     # Instance variables
     _satiety: float  # 0.0-1.0
+    gender: Gender
 
     def __init__(self):
         super().__init__()
         self._satiety = self._starting_satiety
+        self.gender = Gender.FEMALE if chance(self._procreation_female_chance) else Gender.MALE
 
     def step(self, queue: ActionPriorityQueue) -> None:
         queue.enqueue(StepPriority.HUNGER, self, self.__handle_hunger)
         queue.enqueue(StepPriority.DECAY, self, self.__handle_death_age)
         queue.enqueue(StepPriority.DECAY, self, self.__handle_death_starvation)
+        queue.enqueue(StepPriority.SPAWN, self, self.__handle_procreation)
         super().step(queue)
 
     def _eat(self) -> None:
@@ -67,3 +79,30 @@ class Creature(EntityKillable, EntityMovable):
     def __handle_death_starvation(self) -> None:
         if self._satiety <= 0:
             self.kill()
+
+    def __handle_procreation(self) -> None:
+
+        # Gender check
+        if self.gender != Gender.FEMALE:
+            return
+
+        # Threshold check
+        if len(
+            list(
+                filter(
+                    lambda child: child.gender == Gender.MALE,
+                    self.parent.children_by_type(type(self))
+                )
+            )
+        ) < self._procreation_male_threshold:
+            return
+
+        # Spawn children
+        for _ in range(self._procreation_children_count):
+            for rule in self._procreation_spawn_rules:
+                rule.spawn_as_child(self.parent)
+
+
+class Gender(Enum):
+    MALE = 0
+    FEMALE = 1

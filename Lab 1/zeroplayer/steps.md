@@ -37,6 +37,7 @@ In order from high to low priority:
   - Entity: Increase lifetime
 - SPAWN
   - SpawnLocation: spawn
+  - Creature: procreation
 - BEGIN
 - HUNGER
   - Creature: Hunger
