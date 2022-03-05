@@ -34,7 +34,8 @@ class Creature(EntityKillable, EntityMovable):
         super().step(queue)
 
     def _eat(self) -> None:
-        pass
+        """Called when hungry"""
+        self._find_food(1.5 * self._hunger_rate)
 
     def _find_food(self, desired_amount: float):
         """
@@ -48,6 +49,7 @@ class Creature(EntityKillable, EntityMovable):
             resource.sign(self, requested_amount, self._resource_intake)
 
     def _resource_intake(self, value: float):
+        """Passed into resource distribution as the receiver method"""
         self._satiety += value * self._resource_intake_mult
 
     def __handle_hunger(self) -> None:
