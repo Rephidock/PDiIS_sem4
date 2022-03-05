@@ -10,16 +10,19 @@ class Resource(EntityKillable):
 
     # Class
     _threshold: float = 0
-    _decay: float = 0
+    _decay_speed_start: float = 0
+    _decay_acceleration: float = 0
 
     # Instance
     __value: float
     __requests: list[ResourceRequest]
+    _decay_speed: float
 
     def __init__(self, initial_value: float):
         super().__init__()
         self.__value = initial_value
         self.__requests = list()
+        self._decay_speed = self._decay_speed_start
 
     def step(self, queue: ActionPriorityQueue) -> None:
         queue.enqueue(StepPriority.DISTRIBUTE, self, self.__handle_distribution)
@@ -48,7 +51,8 @@ class Resource(EntityKillable):
         self.__requests.clear()
 
     def __handle_decay(self) -> None:
-        self.__value -= self._decay
+        self.__value -= self._decay_speed
+        self._decay_speed += self._decay_acceleration
 
     def __handle_exhaustion(self) -> None:
         # Check resource value
