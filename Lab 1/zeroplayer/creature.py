@@ -11,6 +11,27 @@ from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
 class Creature(EntityKillable, EntityMovable):
+    """
+    Represents a living creature.
+    A creature needs nutrition, can die of starvation and age, can procreate.
+
+    Class settings:
+      - _max_lifetime = None
+
+      - _satiety_starting = 0.8
+      - _satiety_hunger_rate = 0.1
+      - _satiety_sated_threshold = 0.4
+
+      - _intake_resource_type = Resource
+      - _intake_value_mult = 1.0
+      - _intake_request_stuffed = 1.0
+      - _intake_request_starved = 1.0
+
+      - _procreation_male_threshold = 1
+      - _procreation_spawn_count = 1
+      - _procreation_female_chance = 0.5
+      - _procreation_spawn_rules = ()
+    """
 
     # Aging
     _max_lifetime: Optional[int] = None
