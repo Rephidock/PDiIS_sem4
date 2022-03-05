@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import Optional, Type
 from enum import Enum
 from utils.rand_ext import chance
+from utils.math import lerp_clamped
 from zeroplayer.entity_movable import EntityMovable
 from zeroplayer.entity_killable import EntityKillable
 from zeroplayer.resource import Resource
@@ -22,6 +23,8 @@ class Creature(EntityKillable, EntityMovable):
     # Eating
     _intake_resource_type: Type[Resource] = Resource
     _intake_value_mult: float = 1.0
+    _intake_request_stuffed: float = 1.0
+    _intake_request_starved: float = 1.0
 
     # Procreation
     _procreation_male_threshold: int = 1
@@ -48,6 +51,13 @@ class Creature(EntityKillable, EntityMovable):
     def _eat(self) -> None:
         """Called when hungry"""
         self._find_food(1.5 * self._satiety_hunger_rate)
+        self._find_food(
+            lerp_clamped(
+                self._intake_request_starved,
+                self._intake_request_stuffed,
+                self._satiety / self._satiety_sated_threshold
+            )
+        )
 
     def _find_food(self, desired_amount: float):
         """
