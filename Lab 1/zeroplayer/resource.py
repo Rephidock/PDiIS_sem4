@@ -27,7 +27,7 @@ class Resource(EntityKillable):
         queue.enqueue(StepPriority.DECAY, self, self.__handle_exhaustion)
         super().step(queue)
 
-    def sign(self, taker: Entity, value: float, receiver: Callable) -> None:
+    def sign(self, taker: Entity, value: float, receiver: Callable[[Entity, float], None]) -> None:
         self.__requests.append(ResourceRequest(taker, value, receiver))
 
     def __handle_distribution(self) -> None:
@@ -42,7 +42,7 @@ class Resource(EntityKillable):
         # Distribute
         for request in self.__requests:
             self.__value -= mult * request.value
-            request.receiver(mult * request.value)
+            request.receiver(request.taker, mult * request.value)
 
         # Clear
         self.__requests.clear()
@@ -60,4 +60,4 @@ class Resource(EntityKillable):
 class ResourceRequest:
     taker: Entity
     value: float
-    receiver: Callable[[float], None]
+    receiver: Callable[[Entity, float], None]
