@@ -15,17 +15,17 @@ class Creature(EntityKillable, EntityMovable):
     _max_lifetime: Optional[int] = None
 
     # Hunger
-    _starting_satiety: float = 0.8
-    _hunger_rate: float = 0.1
-    _sated_threshold: float = 0.4  # 0.0 - 1.0
+    _satiety_starting: float = 0.8
+    _satiety_hunger_rate: float = 0.1
+    _satiety_sated_threshold: float = 0.4  # 0.0 - 1.0
 
     # Eating
-    _desired_resource: Type[Resource] = Resource
-    _resource_intake_mult: float = 1.0
+    _intake_resource_type: Type[Resource] = Resource
+    _intake_value_mult: float = 1.0
 
     # Procreation
-    _procreation_male_threshold: int = 5
-    _procreation_children_count: int = 1
+    _procreation_male_threshold: int = 1
+    _procreation_spawn_count: int = 1
     _procreation_female_chance: float = 0.5  # 0.0 - 1.0
     _procreation_spawn_rules: tuple[SpawnRule] = ()
 
@@ -35,7 +35,7 @@ class Creature(EntityKillable, EntityMovable):
 
     def __init__(self):
         super().__init__()
-        self._satiety = self._starting_satiety
+        self._satiety = self._satiety_starting
         self.gender = Gender.FEMALE if chance(self._procreation_female_chance) else Gender.MALE
 
     def step(self, queue: ActionPriorityQueue) -> None:
@@ -47,7 +47,7 @@ class Creature(EntityKillable, EntityMovable):
 
     def _eat(self) -> None:
         """Called when hungry"""
-        self._find_food(1.5 * self._hunger_rate)
+        self._find_food(1.5 * self._satiety_hunger_rate)
 
     def _find_food(self, desired_amount: float):
         """
@@ -55,21 +55,21 @@ class Creature(EntityKillable, EntityMovable):
         from all neighbouring resource entities.
         """
         # Sign for distribution
-        resources = self.parent.children_by_type(self._desired_resource)
+        resources = self.parent.children_by_type(self._intake_resource_type)
         requested_amount = desired_amount/len(resources)
         for resource in resources:
             resource.sign(self, requested_amount, self._resource_intake)
 
     def _resource_intake(self, value: float):
         """Passed into resource distribution as the receiver method"""
-        self._satiety += value * self._resource_intake_mult
+        self._satiety += value * self._intake_value_mult
 
     def __handle_hunger(self) -> None:
         # Hunger
-        self._satiety -= self._hunger_rate
+        self._satiety -= self._satiety_hunger_rate
 
         # Eating
-        if self._satiety <= self._sated_threshold:
+        if self._satiety <= self._satiety_sated_threshold:
             self._eat()
 
     def __handle_death_age(self) -> None:
@@ -98,7 +98,7 @@ class Creature(EntityKillable, EntityMovable):
             return
 
         # Spawn children
-        for _ in range(self._procreation_children_count):
+        for _ in range(self._procreation_spawn_count):
             for rule in self._procreation_spawn_rules:
                 rule.spawn_as_child(self.parent)
 
