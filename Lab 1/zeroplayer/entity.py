@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Optional, Type
+from typing import Optional, Type, Any
 from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
@@ -85,7 +85,7 @@ class Entity:
         # Make new parent <-> child links
         new_parent.add_children(*children)
 
-    def children_by_type(self, desired_class: Type[Entity]) -> list[Entity]:
+    def children_by_type(self, desired_class: Type[Entity]) -> list[Any]:
         """Returns a list with all children which are a subclass of the given"""
 
         ret = list()
