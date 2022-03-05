@@ -7,11 +7,20 @@ from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 
 
 class Resource(EntityKillable):
+    """
+    Represents a finite resource.
+    Resource may decay over time and accelerate.
+
+    Class settings:
+      - _death_threshold = 0.0
+      - _decay_speed_start = 0.0
+      - _decay_acceleration = 0.0
+    """
 
     # Class
-    _threshold: float = 0
-    _decay_speed_start: float = 0
-    _decay_acceleration: float = 0
+    _death_threshold: float = 0.0
+    _decay_speed_start: float = 0.0
+    _decay_acceleration: float = 0.0
 
     # Instance
     __value: float
@@ -56,7 +65,7 @@ class Resource(EntityKillable):
 
     def __handle_exhaustion(self) -> None:
         # Check resource value
-        if self.__value <= self.__class__._threshold:
+        if self.__value <= self._death_threshold:
             self.kill()
 
 
