@@ -57,10 +57,14 @@ class Creature(EntityKillable, EntityMovable):
     _satiety: float  # 0.0-1.0
     gender: Gender
 
-    def __init__(self):
+    def __init__(self, forced_gender: Optional[Gender] = None):
         super().__init__()
         self._satiety = self._satiety_starting
-        self.gender = Gender.FEMALE if chance(self._procreation_female_chance) else Gender.MALE
+
+        if forced_gender is None:
+            self.gender = Gender.FEMALE if chance(self._procreation_female_chance) else Gender.MALE
+        else:
+            self.gender = forced_gender
 
     def step(self, queue: ActionPriorityQueue) -> None:
         queue.enqueue(StepPriority.HUNGER, self, self.__handle_hunger)
