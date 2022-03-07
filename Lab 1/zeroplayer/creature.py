@@ -3,6 +3,7 @@ from typing import Optional, Type
 from enum import Enum
 from utils.rand_ext import chance
 from utils.math import lerp_clamped
+
 from zeroplayer.entity_movable import EntityMovable
 from zeroplayer.entity_killable import EntityKillable
 from zeroplayer.resource import Resource
@@ -79,7 +80,7 @@ class Creature(EntityKillable, EntityMovable):
 
         # Eating
         if self._satiety <= self._satiety_sated_threshold:
-            self._eat()
+            self._intake()
 
         # Hunger
         self._satiety -= self._satiety_hunger_rate
@@ -88,29 +89,30 @@ class Creature(EntityKillable, EntityMovable):
         if self._satiety <= 0:
             self.kill()
 
-    def _eat(self) -> None:
+    def _intake(self) -> None:
         """Called when hungry"""
-        self._find_food(
-            lerp_clamped(
+        self._request_food(self._search_food(), self._food_size())
+
+    def _search_food(self) -> list[Resource]:
+        """Returns a list of desired intake resource entities."""
+        return self.parent.children_by_type(self._intake_resource_type)
+
+    def _food_size(self) -> float:
+        """Returns meal size based on current satiety"""
+        return lerp_clamped(
                 self._intake_request_starved,
                 self._intake_request_stuffed,
                 self._satiety / self._satiety_sated_threshold
             )
-        )
 
-    def _find_food(self, desired_amount: float):
-        """
-        Signs the creature for desired resource distribution
-        from all neighbouring resource entities.
-        """
-        # Sign for distribution
-        resources = self.parent.children_by_type(self._intake_resource_type)
-        requested_amount = desired_amount/len(resources)
-        for resource in resources:
-            resource.sign(self, requested_amount, self._resource_intake)
+    def _request_food(self, food_sources: list[Resource], desired_amount: float) -> None:
+        """Signs the creature for resource distribution."""
+        requested_amount = desired_amount/len(food_sources)
+        for resource in food_sources:
+            resource.sign(self, requested_amount, self._receive_resource)
 
-    def _resource_intake(self, value: float):
-        """Passed into resource distribution as the receiver method"""
+    def _receive_resource(self, value: float) -> None:
+        """Passed into resource distribution as receive_handle"""
         self._satiety += value * self._intake_value_mult
 
     #endregion
