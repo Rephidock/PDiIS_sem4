@@ -73,6 +73,21 @@ class Creature(EntityKillable, EntityMovable):
         queue.enqueue(StepPriority.SPAWN, self, self.__handle_procreation)
         super().step(queue)
 
+    #region //// Eating logic
+
+    def __handle_hunger(self) -> None:
+
+        # Eating
+        if self._satiety <= self._satiety_sated_threshold:
+            self._eat()
+
+        # Hunger
+        self._satiety -= self._satiety_hunger_rate
+
+    def __handle_death_starvation(self) -> None:
+        if self._satiety <= 0:
+            self.kill()
+
     def _eat(self) -> None:
         """Called when hungry"""
         self._find_food(
@@ -98,20 +113,12 @@ class Creature(EntityKillable, EntityMovable):
         """Passed into resource distribution as the receiver method"""
         self._satiety += value * self._intake_value_mult
 
-    def __handle_hunger(self) -> None:
-        # Hunger
-        self._satiety -= self._satiety_hunger_rate
+    #endregion
 
-        # Eating
-        if self._satiety <= self._satiety_sated_threshold:
-            self._eat()
+    #region //// Age and procreation
 
     def __handle_death_age(self) -> None:
         if (self._max_lifetime is not None) and (self.lifetime >= self._max_lifetime):
-            self.kill()
-
-    def __handle_death_starvation(self) -> None:
-        if self._satiety <= 0:
             self.kill()
 
     def __handle_procreation(self) -> None:
@@ -135,6 +142,8 @@ class Creature(EntityKillable, EntityMovable):
         for _ in range(self._procreation_spawn_count):
             for rule in self._procreation_spawn_rules:
                 rule.spawn_as_child(self.parent)
+
+    #endregion
 
 
 class Gender(Enum):
