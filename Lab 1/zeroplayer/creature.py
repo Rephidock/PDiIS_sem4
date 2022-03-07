@@ -75,7 +75,6 @@ class Creature(EntityKillable, EntityMovable):
 
     def _eat(self) -> None:
         """Called when hungry"""
-        self._find_food(1.5 * self._satiety_hunger_rate)
         self._find_food(
             lerp_clamped(
                 self._intake_request_starved,
