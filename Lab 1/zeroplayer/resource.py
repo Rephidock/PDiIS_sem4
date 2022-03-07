@@ -39,6 +39,8 @@ class Resource(EntityKillable):
         queue.enqueue(StepPriority.DECAY, self, self.__handle_exhaustion)
         super().step(queue)
 
+    #region //// Distribution
+
     def sign(self, taker: Entity, value: float, receive_handle: Callable[[float], None]) -> None:
         self.__requests.append(ResourceRequest(taker, value, receive_handle))
 
@@ -59,6 +61,18 @@ class Resource(EntityKillable):
         # Clear
         self.__requests.clear()
 
+    #endregion
+
+    #region //// Value, decay
+
+    @property
+    def value(self) -> float:
+        return self.__value
+
+    @property
+    def decay_speed(self) -> float:
+        return self.__decay_speed
+
     def __handle_decay(self) -> None:
         self.__value -= self.__decay_speed
         self.__decay_speed += self._decay_acceleration
@@ -67,6 +81,8 @@ class Resource(EntityKillable):
         # Check resource value
         if self.__value <= self._death_threshold:
             self.kill()
+
+    #endregion
 
 
 @dataclass

@@ -18,22 +18,35 @@ class Entity:
     Perform super().step(queue) calls at the end.
     """
 
-    id: int = 0
+    __pending_id: int = 0
 
-    lifetime: int
+    __id: int
+    __lifetime: int
 
     def __init__(self):
         self.__init_parent_child()
 
-        self.id = Entity.id
-        Entity.id += 1
+        self.__id = Entity.__pending_id
+        Entity.__pending_id += 1
 
-        self.lifetime = 0
+        self.__lifetime = 0
+
+    #region //// Properties
+
+    @property
+    def id(self) -> int:
+        return self.__id
+
+    @property
+    def lifetime(self) -> int:
+        return self.__lifetime
+
+    #endregion
 
     #region //// Stepping
 
     def __handle_lifetime(self) -> None:
-        self.lifetime += 1
+        self.__lifetime += 1
 
     def step(self, queue: ActionPriorityQueue) -> None:
         # Self

@@ -74,7 +74,11 @@ class Creature(EntityKillable, EntityMovable):
         queue.enqueue(StepPriority.SPAWN, self, self.__handle_procreation)
         super().step(queue)
 
-    #region //// Eating logic
+    #region //// Satiety and intake
+
+    @property
+    def satiety(self) -> float:
+        return self._satiety
 
     def __handle_hunger(self) -> None:
 
