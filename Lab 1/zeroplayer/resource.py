@@ -11,7 +11,7 @@ class Resource(EntityKillable):
     Represents a finite resource.
     Resource may decay over time and accelerate.
 
-    Class settings:
+    Class attributes:
       - _death_threshold = 0.0
       - _decay_speed_start = 0.0
       - _decay_acceleration = 0.0

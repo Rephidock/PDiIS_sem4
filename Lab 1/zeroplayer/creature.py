@@ -16,7 +16,7 @@ class Creature(EntityKillable, EntityMovable):
     Represents a living creature.
     A creature needs nutrition, can die of starvation and age, can procreate.
 
-    Class settings:
+    Class attributes:
       - _max_lifetime = None
 
       - _satiety_starting = 0.8
