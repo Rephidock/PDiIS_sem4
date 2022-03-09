@@ -9,7 +9,7 @@ from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
 class Resource(EntityKillable):
     """
     Represents a finite resource.
-    Resource may decay over time and accelerate.
+    Resource may decay over time and the day may accelerate.
 
     Class attributes:
       - _death_threshold = 0.0
