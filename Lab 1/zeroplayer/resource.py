@@ -3,7 +3,6 @@ from typing import Callable
 from utils.action_queue import ActionPriorityQueue
 
 from dataclasses import dataclass
-from zeroplayer.entity import Entity
 from zeroplayer.entity_killable import EntityKillable
 from zeroplayer.step_priorities import StepPriority
 
@@ -43,8 +42,8 @@ class Resource(EntityKillable):
 
     #region //// Distribution
 
-    def sign(self, taker: Entity, value: float, receive_handle: Callable[[float], None]) -> None:
-        self.__requests.append(ResourceRequest(taker, value, receive_handle))
+    def sign(self, value: float, receive_handle: Callable[[float], None]) -> None:
+        self.__requests.append(ResourceRequest(value, receive_handle))
 
     def __handle_distribution(self) -> None:
         # Find total of requests value
@@ -89,6 +88,5 @@ class Resource(EntityKillable):
 
 @dataclass
 class ResourceRequest:
-    taker: Entity
     value: float
     receive_handle: Callable[[float], None]

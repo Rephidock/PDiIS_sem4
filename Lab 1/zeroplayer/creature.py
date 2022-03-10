@@ -114,7 +114,7 @@ class Creature(EntityKillable, EntityMovable):
         """Signs the creature for resource distribution."""
         requested_amount = desired_amount/len(food_sources)
         for resource in food_sources:
-            resource.sign(self, requested_amount, self._receive_resource)
+            resource.sign(requested_amount, self._receive_resource)
 
     def _receive_resource(self, value: float) -> None:
         """Passed into resource distribution as receive_handle"""
