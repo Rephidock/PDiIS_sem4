@@ -2,7 +2,7 @@ import unittest
 import utils.math as umath
 
 
-class Tests(unittest.TestCase):
+class TestMaths(unittest.TestCase):
 
     def test_lerp(self):
         # Boundaries
