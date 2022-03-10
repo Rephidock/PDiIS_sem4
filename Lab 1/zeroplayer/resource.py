@@ -1,9 +1,11 @@
 from __future__ import annotations
 from typing import Callable
+from utils.action_queue import ActionPriorityQueue
+
 from dataclasses import dataclass
 from zeroplayer.entity import Entity
 from zeroplayer.entity_killable import EntityKillable
-from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
+from zeroplayer.step_priorities import StepPriority
 
 
 class Resource(EntityKillable):

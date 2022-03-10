@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import Optional, Type
+from utils.action_queue import ActionPriorityQueue
 from enum import Enum
 from utils.rand_ext import chance
 from utils.math import lerp_clamped
@@ -8,7 +9,7 @@ from zeroplayer.entity_movable import EntityMovable
 from zeroplayer.entity_killable import EntityKillable
 from zeroplayer.resource import Resource
 from zeroplayer.spawn_rule import SpawnRule
-from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
+from zeroplayer.step_priorities import StepPriority
 
 
 class Creature(EntityKillable, EntityMovable):

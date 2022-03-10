@@ -3,35 +3,24 @@ from queue import PriorityQueue
 from enum import IntEnum
 
 
-class StepPriority(IntEnum):
-
-    # Lower value - higher priority
-
-    PRE = 0
-    LIFETIME = 1
-    SPAWN = 2
-
-    BEGIN = 10
-    HUNGER = 15
-    DISTRIBUTE = 17
-
-    NORMAL = 20
-
-    END = 30
-    DECAY = 31
-    MOVE = 32
-    KILL = 35
+class ActionPriority(IntEnum):
+    """
+    Base class for action priorities.
+    Exists for annotations.
+    Lower value - higher priority.
+    """
+    pass
 
 
 class ActionPriorityQueue:
     """A priority queue of Callable actions"""
 
-    __actions: PriorityQueue[tuple[StepPriority, Any, Callable[[Any], None]]]
+    __actions: PriorityQueue[tuple[ActionPriority, Any, Callable[[Any], None]]]
 
     def __init__(self):
         self.__actions = PriorityQueue()
 
-    def enqueue(self, priority: StepPriority, performer: Any, action: Callable[[Any], None]) -> None:
+    def enqueue(self, priority: ActionPriority, performer: Any, action: Callable[[Any], None]) -> None:
         """Enqueues an action with priority"""
         self.__actions.put((priority, performer, action))
 

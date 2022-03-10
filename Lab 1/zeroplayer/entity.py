@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Optional, Type, Any
-from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
+from utils.action_queue import ActionPriorityQueue
+from zeroplayer.step_priorities import StepPriority
 
 
 class Entity:

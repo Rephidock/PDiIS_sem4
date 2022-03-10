@@ -1,6 +1,7 @@
+from utils.action_queue import ActionPriorityQueue
 from random import choice
 from zeroplayer.entity import Entity
-from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
+from zeroplayer.step_priorities import StepPriority
 
 
 class EntityMovable(Entity):

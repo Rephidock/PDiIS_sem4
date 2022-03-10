@@ -1,6 +1,7 @@
 from typing import Optional
+from utils.action_queue import ActionPriorityQueue
 from zeroplayer.entity import Entity
-from zeroplayer.action_queue import StepPriority, ActionPriorityQueue
+from zeroplayer.step_priorities import StepPriority
 from zeroplayer.spawn_rule import SpawnRule
 
 

@@ -1,6 +1,6 @@
 
 __all__ = [
-    "action_queue",
+    "step_priorities",
     "entity",
     "entity_movable",
     "entity_killable",
