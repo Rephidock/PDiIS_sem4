@@ -69,10 +69,10 @@ class Creature(EntityKillable, EntityMovable):
             self.gender = forced_gender
 
     def step(self, queue: ActionPriorityQueue) -> None:
-        queue.enqueue(StepPriority.HUNGER, self, self.__handle_hunger)
-        queue.enqueue(StepPriority.DECAY, self, self.__handle_death_age)
-        queue.enqueue(StepPriority.DECAY, self, self.__handle_death_starvation)
-        queue.enqueue(StepPriority.SPAWN, self, self.__handle_procreation)
+        queue.enqueue(StepPriority.HUNGER, self.__handle_hunger)
+        queue.enqueue(StepPriority.DECAY, self.__handle_death_age)
+        queue.enqueue(StepPriority.DECAY, self.__handle_death_starvation)
+        queue.enqueue(StepPriority.SPAWN, self.__handle_procreation)
         super().step(queue)
 
     #region //// Satiety and intake

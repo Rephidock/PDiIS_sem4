@@ -14,7 +14,7 @@ class SpawnLocation(Entity):
     _rules: tuple[SpawnRule] = ()
 
     def step(self, queue: ActionPriorityQueue) -> None:
-        queue.enqueue(StepPriority.SPAWN, self, self.__handle_spawn)
+        queue.enqueue(StepPriority.SPAWN, self.__handle_spawn)
         super().step(queue)
 
     def __handle_spawn(self) -> None:

@@ -24,7 +24,7 @@ class EntityKillable(Entity):
         self.__killed = False
 
     def step(self, queue: ActionPriorityQueue) -> None:
-        queue.enqueue(StepPriority.KILL, self, self.__handle_death)
+        queue.enqueue(StepPriority.KILL, self.__handle_death)
         super().step(queue)
 
     def kill(self):

@@ -18,7 +18,7 @@ class EntityMovable(Entity):
         self.__move_target = list()
 
     def step(self, queue: ActionPriorityQueue) -> None:
-        queue.enqueue(StepPriority.KILL, self, self.__handle_movement)
+        queue.enqueue(StepPriority.KILL, self.__handle_movement)
         super().step(queue)
 
     def move(self, target: Entity):

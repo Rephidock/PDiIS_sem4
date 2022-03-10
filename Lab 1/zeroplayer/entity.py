@@ -51,7 +51,7 @@ class Entity:
 
     def step(self, queue: ActionPriorityQueue) -> None:
         # Self
-        queue.enqueue(StepPriority.LIFETIME, self, self.__handle_lifetime)
+        queue.enqueue(StepPriority.LIFETIME, self.__handle_lifetime)
 
         # Children
         for child in self.children.values():
