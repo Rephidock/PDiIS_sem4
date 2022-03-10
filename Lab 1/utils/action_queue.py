@@ -13,10 +13,10 @@ class ActionPriority(IntEnum):
     pass
 
 
-@dataclass
+@dataclass(order=True)
 class ActionPriorityItem:
-    priority: ActionPriority
-    action: Callable[[Any], None] = field(compare=False)
+    priority: ActionPriority = field()
+    action: Callable[[], None] = field(compare=False)
     pass
 
 
@@ -28,7 +28,7 @@ class ActionPriorityQueue:
     def __init__(self):
         self.__actions = PriorityQueue()
 
-    def enqueue(self, priority: ActionPriority, action: Callable[[Any], None]) -> None:
+    def enqueue(self, priority: ActionPriority, action: Callable[[], None]) -> None:
         """Enqueues an action with priority"""
         self.__actions.put(ActionPriorityItem(priority, action))
 
