@@ -5,9 +5,9 @@ from zeroplayer.spawn_rule import SpawnRule
 from zeroplayer.step_priorities import StepPriority
 
 
-class SpawnLocation(Entity):
+class Location(Entity):
     """
-    An entity that creates new entities via spawn rules.
+    Represents a location.
     Can create new entities every step.
     """
 
