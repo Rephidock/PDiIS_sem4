@@ -1,8 +1,8 @@
 from __future__ import annotations
 from typing import Optional, Type, Any
 from utils.rand_ext import chance
+import utils.activator as activator
 from zeroplayer.entity import Entity
-from utils.activator import Activator
 
 
 class SpawnRule:
@@ -44,7 +44,7 @@ class SpawnRule:
         if not (chance(self.__chance)):
             return None
 
-        return Activator.create_instance(self.__entity_type, self.__entity_args)
+        return activator.create_instance(self.__entity_type, self.__entity_args)
 
     def spawn_as_child(self, parent: Optional[Entity]) -> Optional[Entity]:
         child = self.spawn()

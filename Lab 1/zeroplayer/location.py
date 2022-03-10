@@ -40,12 +40,12 @@ class Location(Entity):
     def __init_neighbours(self):
         self.neighbours = dict()
 
-    def add_neighbour(self, *args: Location):
+    def add_neighbour(self, *args: Location) -> None:
         for location in args:
             self.neighbours[location.id] = location
             location.neighbours[self.id] = self
 
-    def remove_neighbour(self, location: Location):
+    def remove_neighbour(self, location: Location) -> None:
         self.neighbours.pop(location.id)
         location.neighbours.pop(self.id)
 
