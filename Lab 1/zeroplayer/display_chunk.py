@@ -59,7 +59,7 @@ class DisplayChunk:
         ret.set_name(str_proxy(entity, overrides))
 
         for child in entity.children.values():
-            ret.add_content(DisplayChunk.from_entity(child, overrides=overrides))
+            ret.add_content(cls.from_entity(child, overrides=overrides))
 
         return ret
 
@@ -87,10 +87,10 @@ class DisplayChunk:
         """
         Returns self.
         """
-        if content is str:
+        if isinstance(content, str):
             self.content_singles.append(content)
 
-        if content is DisplayChunk:
+        if isinstance(content, DisplayChunk):
             self.content_chunks.append(content)
 
         return self
