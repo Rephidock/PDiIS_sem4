@@ -72,13 +72,14 @@ class Entity:
 
     def add_children(self, *args: Entity) -> None:
         for child in args:
-            self.children[child.id] = child
-            child.replace_parent(self)
+            if self.children.get(child.id) is None:  # If isn't already a child
+                self.children[child.id] = child
+                child.replace_parent(self)
 
     def replace_parent(self, new_parent: Optional[Entity]) -> None:
-        if not (self.parent is None):
+        if self.parent is not None:
             self.parent.remove_child(self)
-        if not (new_parent is None):
+        if new_parent is not None:
             new_parent.add_children(self)
         self.parent = new_parent
 
