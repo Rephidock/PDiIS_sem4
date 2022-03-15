@@ -5,9 +5,9 @@ from enum import Enum
 from utils.rand_ext import chance
 from utils.math import lerp_clamped
 
-from zeroplayer.entity_movable import EntityMovable
-from zeroplayer.entity_killable import EntityKillable
-from zeroplayer.resource import Resource
+from zeroplayer.entities.entity_movable import EntityMovable
+from zeroplayer.entities.entity_killable import EntityKillable
+from zeroplayer.entities.resource import Resource
 from zeroplayer.spawn_rule import SpawnRule
 from zeroplayer.step_priorities import StepPriority
 

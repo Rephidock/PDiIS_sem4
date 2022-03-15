@@ -1,6 +1,6 @@
 from utils.action_queue import ActionPriorityQueue
 from random import choice
-from zeroplayer.entity import Entity
+from zeroplayer.entities.entity import Entity
 from zeroplayer.step_priorities import StepPriority
 
 

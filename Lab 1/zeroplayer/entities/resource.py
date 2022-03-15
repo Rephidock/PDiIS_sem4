@@ -3,7 +3,7 @@ from typing import Callable
 from utils.action_queue import ActionPriorityQueue
 
 from dataclasses import dataclass
-from zeroplayer.entity_killable import EntityKillable
+from zeroplayer.entities.entity_killable import EntityKillable
 from zeroplayer.step_priorities import StepPriority
 
 

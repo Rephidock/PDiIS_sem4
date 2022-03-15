@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import Optional, Type, Any
 from utils.rand_ext import chance
 import utils.activator as activator
-from zeroplayer.entity import Entity
+from zeroplayer.entities.entity import Entity
 
 
 class SpawnRule:

@@ -1,7 +1,7 @@
 from __future__ import annotations
 from utils.action_queue import ActionPriorityQueue
 
-from zeroplayer.entity import Entity
+from zeroplayer.entities.entity import Entity
 from zeroplayer.spawn_rule import SpawnRule
 from zeroplayer.step_priorities import StepPriority
 
