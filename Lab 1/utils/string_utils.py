@@ -18,3 +18,7 @@ def str_proxy(obj: Any, overrides: dict[Type, Callable[[Any], str]]) -> str:
 
     # Perform override
     return lookup(obj)
+
+
+def str_replace_at(str_: str, at: int, substr: str) -> str:
+    return str_[:at] + substr + str_[at + len(substr):]

@@ -1,9 +1,9 @@
 from typing import Type, Callable, Any
 import unittest
-from utils.str_proxy import str_proxy
+from utils.string_utils import str_proxy, str_replace_at
 
 
-class TestProxy(unittest.TestCase):
+class TestStrings(unittest.TestCase):
 
     #region //// Custom classes
 
@@ -61,6 +61,22 @@ class TestProxy(unittest.TestCase):
         papaya = self.Fruit("Papaya")
         self.assertEqual(str_proxy(papaya, overrides), str(papaya))
         self.assertEqual(str_proxy(lee, overrides), str(lee))
+
+    def test_replace_at(self):
+
+        base_string = "abcdeABCDE"
+
+        # Single characters
+        self.assertEqual(str_replace_at(base_string, 0, "A"), "AbcdeABCDE")
+        self.assertEqual(str_replace_at(base_string, 1, "0"), "a0cdeABCDE")
+        self.assertEqual(str_replace_at(base_string, 5, "Q"), "abcdeQBCDE")
+        self.assertEqual(str_replace_at(base_string, 9, "z"), "abcdeABCDz")
+
+        # Longer strings
+        self.assertEqual(str_replace_at(base_string, 0, "ABXY"), "ABXYeABCDE")
+        self.assertEqual(str_replace_at(base_string, 1, "01"), "a01deABCDE")
+        self.assertEqual(str_replace_at(base_string, 5, "QwEr"), "abcdeQwErE")
+        self.assertEqual(str_replace_at(base_string, 7, "ZUL"), "abcdeABZUL")
 
 
 if __name__ == '__main__':
