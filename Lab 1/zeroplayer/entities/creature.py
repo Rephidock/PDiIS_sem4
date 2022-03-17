@@ -25,10 +25,7 @@ class Creature(EntityKillable, EntityMovable):
       - _satiety_hunger_rate = 0.1
       - _satiety_sated_threshold = 0.4
 
-      - _intake_resource_type = Resource
-      - _intake_value_mult = 1.0
-      - _intake_request_stuffed = 1.0
-      - _intake_request_starved = 1.0
+      - _intake_rules = dict()
 
       - _procreation_male_threshold = 1
       - _procreation_spawn_count = 1
