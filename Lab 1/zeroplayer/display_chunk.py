@@ -37,7 +37,9 @@ class DisplayChunk:
     def from_entity(
             cls,
             entity: Entity,
-            overrides: Optional[dict[type, Callable[[Any], str]]] = None
+            *,
+            overrides: Optional[dict[type, Callable[[Any], str]]] = None,
+            force_chunk_types: Optional[list[type]] = None
     ) -> str | DisplayChunk:
         """
         Creates a display chunk or string from an entity.
@@ -50,8 +52,14 @@ class DisplayChunk:
         if overrides is None:
             overrides = dict()
 
+        if force_chunk_types is None:
+            force_chunk_types = list()
+
         # String
-        if not entity.children:  # Empty dictionary will evaluate to False
+        is_short: bool = False
+        is_short = is_short or not bool(entity.children)
+        is_short = is_short and (type(entity) not in force_chunk_types)
+        if is_short:
             return str_proxy(entity, overrides)
 
         # Chunk
@@ -59,7 +67,7 @@ class DisplayChunk:
         ret.set_name(str_proxy(entity, overrides))
 
         for child in entity.children.values():
-            ret.add_content(cls.from_entity(child, overrides=overrides))
+            ret.add_content(cls.from_entity(child, overrides=overrides, force_chunk_types=force_chunk_types))
 
         return ret
 
