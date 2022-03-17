@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Callable
+from typing import Callable, Type
 from utils.action_queue import ActionPriorityQueue
 
 from dataclasses import dataclass
@@ -57,7 +57,7 @@ class Resource(EntityKillable):
         # Distribute
         for request in self.__requests:
             self.__value -= mult * request.value
-            request.receive_handle(mult * request.value)
+            request.receive_handle(mult * request.value, type(self))
 
         # Clear
         self.__requests.clear()
@@ -89,4 +89,4 @@ class Resource(EntityKillable):
 @dataclass
 class ResourceRequest:
     value: float
-    receive_handle: Callable[[float], None]
+    receive_handle: Callable[[float, Type[Resource]], None]

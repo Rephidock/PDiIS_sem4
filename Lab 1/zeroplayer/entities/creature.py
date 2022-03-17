@@ -1,9 +1,10 @@
 from __future__ import annotations
 from typing import Optional, Type
 from utils.action_queue import ActionPriorityQueue
-from enum import Enum
 from utils.rand_ext import chance
 from utils.math import lerp_clamped
+from enum import Enum
+from dataclasses import dataclass
 
 from zeroplayer.entities.entity_movable import EntityMovable
 from zeroplayer.entities.entity_killable import EntityKillable
@@ -41,13 +42,10 @@ class Creature(EntityKillable, EntityMovable):
     # Hunger
     _satiety_starting: float = 0.8
     _satiety_hunger_rate: float = 0.1
-    _satiety_sated_threshold: float = 0.4  # 0.0 - 1.0
+    _satiety_stuffed_threshold: float = 0.4  # 0.0 - 1.0
 
     # Eating
-    _intake_resource_type: Type[Resource] | tuple[Type[Resource], ...] = Resource
-    _intake_value_mult: float = 1.0
-    _intake_request_stuffed: float = 1.0
-    _intake_request_starved: float = 1.0
+    _intake_rules: dict[Type[Resource], IntakeRule] = dict()
 
     # Procreation
     _procreation_male_threshold: int = 1
@@ -84,7 +82,7 @@ class Creature(EntityKillable, EntityMovable):
     def __handle_hunger(self) -> None:
 
         # Eating
-        if self._satiety <= self._satiety_sated_threshold:
+        if self._satiety <= self._satiety_stuffed_threshold:
             self._intake()
 
         # Hunger
@@ -96,31 +94,42 @@ class Creature(EntityKillable, EntityMovable):
 
     def _intake(self) -> None:
         """Called when hungry"""
-        self._request_food(self._search_food(), self._food_size())
+        self._request_food(self._search_food())
 
     def _search_food(self) -> list[Resource]:
         """Returns a list of desired intake resource entities."""
-        if self._intake_resource_type is tuple:
-            return self.parent.children_by_type(*self._intake_resource_type)
-        return self.parent.children_by_type(self._intake_resource_type)
+        intake_resource_type = [key for key in self._intake_rules.keys()]
+        return self.parent.children_by_type(*intake_resource_type)
 
-    def _food_size(self) -> float:
-        """Returns meal size based on current satiety"""
-        return lerp_clamped(
-                self._intake_request_starved,
-                self._intake_request_stuffed,
-                self._satiety / self._satiety_sated_threshold
-            )
-
-    def _request_food(self, food_sources: list[Resource], desired_amount: float) -> None:
+    def _request_food(self, food_sources: list[Resource]) -> None:
         """Signs the creature for resource distribution."""
-        requested_amount = desired_amount/len(food_sources)
-        for resource in food_sources:
-            resource.sign(requested_amount, self._receive_resource)
+        for resource, amount in zip(food_sources, self._request_get_values(food_sources)):
+            resource.sign(amount, self._receive_resource)
 
-    def _receive_resource(self, value: float) -> None:
+    def _request_get_values(self, food_sources: list[Resource]) -> list[float]:
+        """Returns meal size for each food source based on current satiety"""
+
+        # Get weights
+        weight_sum = 0
+        for source in food_sources:
+            weight_sum += self._intake_rules[type(source)].request_weight
+
+        # Get values
+        values = [
+            lerp_clamped(
+                self._intake_rules[type(source)].request_starved,
+                self._intake_rules[type(source)].request_stuffed,
+                self._satiety / self._satiety_stuffed_threshold
+            )
+            * self._intake_rules[type(source)].request_weight / weight_sum
+            for source in food_sources
+        ]
+
+        return values
+
+    def _receive_resource(self, value: float, type_: Type[Resource]) -> None:
         """Passed into resource distribution as receive_handle"""
-        self._satiety += value * self._intake_value_mult
+        self._satiety += value * self._intake_rules[type_].value_mult
 
     #endregion
 
@@ -158,3 +167,11 @@ class Creature(EntityKillable, EntityMovable):
 class Gender(Enum):
     MALE = 0
     FEMALE = 1
+
+
+@dataclass
+class IntakeRule:
+    value_mult: float
+    request_stuffed: float
+    request_starved: float
+    request_weight: int = 1
