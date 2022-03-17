@@ -44,7 +44,7 @@ class Creature(EntityKillable, EntityMovable):
     _satiety_sated_threshold: float = 0.4  # 0.0 - 1.0
 
     # Eating
-    _intake_resource_type: Type[Resource] = Resource
+    _intake_resource_type: Type[Resource] | tuple[Type[Resource], ...] = Resource
     _intake_value_mult: float = 1.0
     _intake_request_stuffed: float = 1.0
     _intake_request_starved: float = 1.0
@@ -100,6 +100,8 @@ class Creature(EntityKillable, EntityMovable):
 
     def _search_food(self) -> list[Resource]:
         """Returns a list of desired intake resource entities."""
+        if self._intake_resource_type is tuple:
+            return self.parent.children_by_type(*self._intake_resource_type)
         return self.parent.children_by_type(self._intake_resource_type)
 
     def _food_size(self) -> float:

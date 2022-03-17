@@ -100,13 +100,15 @@ class Entity:
         # Make new parent <-> child links
         new_parent.add_children(*children)
 
-    def children_by_type(self, desired_class: Type[Entity]) -> list[Any]:
+    def children_by_type(self, *desired_classes: Type[Entity]) -> list[Any]:
         """Returns a list with all children which are a subclass of the given"""
 
         ret = list()
         for child in self.children.values():
-            if issubclass(desired_class, child.__class__):
-                ret.append(child)
+            for desired_class in desired_classes:
+                if issubclass(desired_class, child.__class__):
+                    ret.append(child)
+                break
         return ret
 
     #endregion
