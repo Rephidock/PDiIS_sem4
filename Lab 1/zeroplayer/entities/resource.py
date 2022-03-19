@@ -37,7 +37,7 @@ class Resource(EntityKillable):
     def step(self, queue: ActionPriorityQueue) -> None:
         queue.enqueue(StepPriority.DISTRIBUTE, self.__handle_distribution)
         queue.enqueue(StepPriority.DECAY, self.__handle_decay)
-        queue.enqueue(StepPriority.DECAY, self.__handle_exhaustion)
+        queue.enqueue(StepPriority.EXHAUSTION, self.__handle_exhaustion)
         super().step(queue)
 
     #region //// Distribution

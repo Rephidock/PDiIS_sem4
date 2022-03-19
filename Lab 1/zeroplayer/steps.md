@@ -49,6 +49,8 @@ In order from high to low priority:
   - EntityMovable: Movement
 - DECAY
   - Creature: Max age; Starvation
-  - Resource: Decay; Exhaustion
+  - Resource: Decay
+- EXHAUSTION
+  - Resource: Exhaustion
 - KILL
   - EntityKillable: Death

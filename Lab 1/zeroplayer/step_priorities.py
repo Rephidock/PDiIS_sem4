@@ -18,4 +18,5 @@ class StepPriority(ActionPriority):
     END = 30
     DECAY = 31
     MOVE = 32
+    EXHAUSTION = 33
     KILL = 35

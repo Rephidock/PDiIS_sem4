@@ -48,6 +48,12 @@ class TestActionPriorityQueue(unittest.TestCase):
         queue.perform()
         self.assertEqual(p.value, (3 + 1) * 4)
 
+        queue.enqueue(self.Priorities.FIRST, p.set3)
+        queue.enqueue(self.Priorities.FIRST, p.add1)
+        queue.enqueue(self.Priorities.FIRST, p.mult4)
+        queue.perform()
+        self.assertEqual(p.value, (3 + 1) * 4)
+
 
 if __name__ == '__main__':
     unittest.main()
