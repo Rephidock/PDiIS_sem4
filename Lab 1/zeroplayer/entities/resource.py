@@ -46,6 +46,11 @@ class Resource(EntityKillable):
         self.__requests.append(ResourceRequest(value, receive_handle))
 
     def __handle_distribution(self) -> None:
+
+        # Skip if no one requested
+        if len(self.__requests) < 1:
+            return
+
         # Find total of requests value
         total_val = 0.0
         for request in self.__requests:
