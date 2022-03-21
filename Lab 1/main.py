@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Callable
 import keyboard
 import animals_sim
 from zeroplayer.entities.entity import RootEntity
@@ -14,22 +14,16 @@ class Lab1:
 
     def main(self):
 
-        # Hook
-        keyboard.on_press_key("f5", lambda _: self.draw(), suppress=True)
-        keyboard.on_press_key("o", lambda _: self.sim_open(), suppress=True)
-        keyboard.on_press_key("s", lambda _: self.sim_save(), suppress=True)
-        keyboard.on_press_key("n", lambda _: self.sim_new(), suppress=True)
-        keyboard.on_press_key("i", lambda _: self.sim_interfere(), suppress=True)
-        keyboard.on_press_key("space", lambda _: self.sim_step(), suppress=True)
-
         # Initial drawing
         self.draw()
 
-        # Wait for exit
-        keyboard.wait("esc")
+        # Map input methods
+        self.forward_rules_fill()
 
-        # Cleanup
-        keyboard.unhook_all()
+        while True:
+            do_exit = self.handle_key_event(keyboard.read_event())
+            if do_exit:
+                break
 
     #endregion
 
@@ -68,11 +62,45 @@ class Lab1:
 
     #endregion
 
-    #region //// Controls and simulation
+    #region //// Controls
+
+    forward_rules: dict[int, Callable[[], None | bool]]
+    display_controls: str = "[O] - Open. [S] - Save. [N] - New.\n[Space] - Step single. [I] - Interfer [ESC] - Exit."
+
+    def forward_rules_fill(self) -> None:
+        self.forward_rules = {
+            keyboard.key_to_scan_codes("esc")[0]: lambda: True,
+            keyboard.key_to_scan_codes("f5")[0]: self.draw,
+            keyboard.key_to_scan_codes("o")[0]: self.sim_open,
+            keyboard.key_to_scan_codes("s")[0]: self.sim_save,
+            keyboard.key_to_scan_codes("n")[0]: self.sim_new,
+            keyboard.key_to_scan_codes("i")[0]: self.sim_interfere,
+            keyboard.key_to_scan_codes("space")[0]: self.sim_step
+        }
+
+    def handle_key_event(self, event: keyboard.KeyboardEvent) -> bool:
+        """
+        Returns True if user exited the app.
+        """
+
+        # Only check for presses, not releases
+        if event.event_type == keyboard.KEY_UP:
+            return False
+
+        # Find method
+        lookup = self.forward_rules.get(event.scan_code)
+        if lookup is None:
+            return False
+
+        # Call and return
+        ret = lookup()
+        return bool(ret)  # None will become False
+
+    #endregion
+
+    #region //// Simulation and interaction
 
     sim_root: Optional[RootEntity]
-
-    display_controls: str = "[O] - Open. [S] - Save. [N] - New.\n[Space] - Step single. [I] - Interfer [ESC] - Exit."
 
     def __init_sim(self):
         self.sim_root = None
