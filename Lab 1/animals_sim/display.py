@@ -8,7 +8,7 @@ import animals_sim.entities as entities
 # Display function
 def creature_display(name: str, obj: Creature) -> str:
     gender_symbol = "♂" if obj.gender == Gender.MALE else "♀"
-    return f"{name}[{gender_symbol} 🕒{obj.lifetime} 🍖{obj.satiety:.2f}]"
+    return f"{name}[{gender_symbol} Age {obj.lifetime} Sat {obj.satiety:.2f}]"
 
 
 def resource_display(name: str, obj: Resource) -> str:
