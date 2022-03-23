@@ -31,6 +31,8 @@ class Creature(EntityKillable, EntityMovable):
       - _procreation_spawn_count = 1
       - _procreation_female_chance = 0.5
       - _procreation_spawn_rules = ()
+      - _procreation_cooldown = 5
+      - _procreation_initial_cooldown = 7
     """
 
     # Aging
@@ -49,10 +51,13 @@ class Creature(EntityKillable, EntityMovable):
     _procreation_spawn_count: int = 1
     _procreation_female_chance: float = 0.5  # 0.0 - 1.0
     _procreation_spawn_rules: tuple[SpawnRule] = ()
+    _procreation_cooldown: int = 5
+    _procreation_initial_cooldown: int = 7
 
     # Instance variables
     _satiety: float  # 0.0-1.0
     gender: Gender
+    __procreation_current_cooldown: int
 
     def __init__(self, forced_gender: Optional[Gender] = None):
         super().__init__()
@@ -62,6 +67,8 @@ class Creature(EntityKillable, EntityMovable):
             self.gender = Gender.FEMALE if chance(self._procreation_female_chance) else Gender.MALE
         else:
             self.gender = forced_gender
+
+        self.__procreation_current_cooldown = self._procreation_initial_cooldown
 
     def step(self, queue: ActionPriorityQueue) -> None:
         queue.enqueue(StepPriority.HUNGER, self.__handle_hunger)
@@ -142,6 +149,11 @@ class Creature(EntityKillable, EntityMovable):
         if self.gender != Gender.FEMALE:
             return
 
+        # Cooldown
+        self.__procreation_current_cooldown -= 1
+        if self.__procreation_current_cooldown > 0:
+            return
+
         # Threshold check
         if len(
             list(
@@ -157,6 +169,9 @@ class Creature(EntityKillable, EntityMovable):
         for _ in range(self._procreation_spawn_count):
             for rule in self._procreation_spawn_rules:
                 rule.spawn_as_child(self.parent)
+
+        # Reset cooldown
+        self.__procreation_current_cooldown = self._procreation_cooldown
 
     #endregion
 
