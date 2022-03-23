@@ -1,4 +1,4 @@
-from typing import Callable, Any
+from typing import Callable
 from queue import PriorityQueue
 from enum import IntEnum
 from dataclasses import dataclass, field

@@ -43,9 +43,9 @@ class EntityKillable(Entity):
 
         # Transfer children
         if self._transfer_children:
-            if not (last_residue is None):
+            if last_residue is not None:
                 self.transfer_children(last_residue)
 
         # Unlink self
-        if not (self.parent is None):
+        if self.parent is not None:
             self.parent.remove_child(self)

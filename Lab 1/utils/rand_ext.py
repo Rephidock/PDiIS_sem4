@@ -1,5 +1,4 @@
-from typing import Any
-from random import random, randint
+from random import random
 
 
 def chance(chance_of_true: float) -> bool:
