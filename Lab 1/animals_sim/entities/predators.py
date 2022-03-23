@@ -8,12 +8,12 @@ import animals_sim.entities.herbivores as herbivores
 
 
 class Owl(Creature):
-    _max_lifetime = 50
+    _max_lifetime = 40
 
     _satiety_hunger_rate = 0.2
 
     _intake_rules = {
-        herbivores.MouseMeat: IntakeRule(value_mult=0.3, request_starved=3, request_stuffed=0.5),
+        herbivores.MouseMeat: IntakeRule(value_mult=0.5, request_starved=3, request_stuffed=0.5),
     }
 
     def _intake(self):
@@ -45,13 +45,13 @@ class Fox(Creature):
     _satiety_hunger_rate = 0.2
 
     _intake_rules = {
-        herbivores.RabbitMeat: IntakeRule(value_mult=0.3, request_starved=2, request_stuffed=0.5),
+        herbivores.RabbitMeat: IntakeRule(value_mult=0.5, request_starved=2, request_stuffed=0.5),
     }
 
     def _intake(self):
         found_food = self._search_food()
         found_food_is_empty = not bool(found_food)
-        found_targets = self.parent.children_by_type(herbivores.Mouse)
+        found_targets = self.parent.children_by_type(herbivores.Rabbit)
         found_targets_is_empty = not bool(found_targets)
         # is_nearly_starved = self.satiety < 0.2
 

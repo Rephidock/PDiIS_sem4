@@ -23,7 +23,7 @@ class Creature(EntityKillable, EntityMovable):
 
       - _satiety_starting = 0.8
       - _satiety_hunger_rate = 0.1
-      - _satiety_sated_threshold = 0.4
+      - _satiety_sated_threshold = 0.7
 
       - _intake_rules = dict()
 
@@ -41,7 +41,7 @@ class Creature(EntityKillable, EntityMovable):
     # Hunger
     _satiety_starting: float = 0.8
     _satiety_hunger_rate: float = 0.1
-    _satiety_stuffed_threshold: float = 0.4  # 0.0 - 1.0
+    _satiety_stuffed_threshold: float = 0.7
 
     # Eating
     _intake_rules: dict[Type[Resource], IntakeRule] = dict()
