@@ -3,8 +3,10 @@ from typing import Optional, Type, Any
 from utils.action_queue import ActionPriorityQueue
 from zeroplayer.step_priorities import StepPriority
 
+from abc import ABC
 
-class Entity:
+
+class Entity(ABC):
     """
     Base class for all things in a zero player step simulation.
 

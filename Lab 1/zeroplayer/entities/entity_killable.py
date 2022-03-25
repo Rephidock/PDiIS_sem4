@@ -1,11 +1,13 @@
 from typing import Optional
 from utils.action_queue import ActionPriorityQueue
+from abc import ABCMeta
+
 from zeroplayer.entities.entity import Entity
 from zeroplayer.step_priorities import StepPriority
 from zeroplayer.spawn_rule import SpawnRule
 
 
-class EntityKillable(Entity):
+class EntityKillable(Entity, metaclass=ABCMeta):
     """
     An entity that can be killed or destroyed.
     When this entity is destroyed it may

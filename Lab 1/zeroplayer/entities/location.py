@@ -5,8 +5,10 @@ from zeroplayer.entities.entity import Entity
 from zeroplayer.spawn_rule import SpawnRule
 from zeroplayer.step_priorities import StepPriority
 
+from abc import ABCMeta
 
-class Location(Entity):
+
+class Location(Entity, metaclass=ABCMeta):
     """
     Represents a location.
     Can create new entities every step.

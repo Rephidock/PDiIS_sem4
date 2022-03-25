@@ -1,10 +1,12 @@
 from utils.action_queue import ActionPriorityQueue
 from random import choice
+from abc import ABCMeta
+
 from zeroplayer.entities.entity import Entity
 from zeroplayer.step_priorities import StepPriority
 
 
-class EntityMovable(Entity):
+class EntityMovable(Entity, metaclass=ABCMeta):
     """
     An entity that can move or be moved.
     If during a step multiple moves need to be performed,

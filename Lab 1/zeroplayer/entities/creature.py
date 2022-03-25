@@ -5,6 +5,7 @@ from utils.rand_ext import chance
 from utils.math import lerp_clamped
 from enum import Enum
 from dataclasses import dataclass
+from abc import ABCMeta
 
 from zeroplayer.entities.entity_movable import EntityMovable
 from zeroplayer.entities.entity_killable import EntityKillable
@@ -13,7 +14,7 @@ from zeroplayer.spawn_rule import SpawnRule
 from zeroplayer.step_priorities import StepPriority
 
 
-class Creature(EntityKillable, EntityMovable):
+class Creature(EntityKillable, EntityMovable, metaclass=ABCMeta):
     """
     Represents a living creature.
     A creature needs nutrition, can die of starvation and age, can procreate.

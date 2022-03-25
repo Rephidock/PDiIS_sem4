@@ -1,13 +1,14 @@
 from __future__ import annotations
 from typing import Callable, Type
 from utils.action_queue import ActionPriorityQueue
-
 from dataclasses import dataclass
+from abc import ABCMeta
+
 from zeroplayer.entities.entity_killable import EntityKillable
 from zeroplayer.step_priorities import StepPriority
 
 
-class Resource(EntityKillable):
+class Resource(EntityKillable, metaclass=ABCMeta):
     """
     Represents a finite resource.
     Resource may decay over time and the day may accelerate.
