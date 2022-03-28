@@ -115,4 +115,4 @@ dmypy.json
 
 # From .idea folders
 .iws
-*.idea/workspace.xml
+*/.idea/workspace.xml
