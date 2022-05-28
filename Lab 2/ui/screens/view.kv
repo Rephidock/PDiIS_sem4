@@ -1,0 +1,117 @@
+#:import RecordsTable ui.components.records_table.RecordsTable
+#:import CenteredTextInput ui.components.centered_text_input.CenteredTextInput
+
+
+<ViewScreen@Screen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: '0dp'
+        padding: ('5dp', '5dp', '5dp', '5dp')
+
+        md_bg_color: app.theme_cls.bg_normal
+
+        RecordsTable:
+            id: records_table
+            spacing: ['2dp', '2dp']
+
+        TableControls:
+            id: table_controls
+
+        TableRecordsPerRow:
+            id: table_records_per_row
+
+
+<TableControls@MDBoxLayout>:
+    size_hint: (1, None)
+    height: '50dp'
+
+    orientation: "horizontal"
+    spacing: '5dp'
+    padding: ('10dp', '5dp', '5dp', '5dp')
+
+    # Filtered view
+    MDSwitch:
+        id: filter_view_switch
+        size_hint: (None, 1)
+        width: '40dp'
+
+        active: False
+        on_active: app.event_handler.on_view_filter_switch()
+
+    Label:
+        text: "Search View"
+        size_hint: (None, 1)
+        width: '125dp'
+
+    # Page controls
+    Button:
+        text: "<<"
+        on_press: app.event_handler.on_view_press_first()
+
+    Button:
+        text: "<"
+        on_press: app.event_handler.on_view_press_prev()
+
+    Label:
+        id: page_selection_label
+        size_hint: (1.5, 1)
+        text: "1-10 of 50"
+
+    Button:
+        text: ">"
+        on_press: app.event_handler.on_view_press_next()
+
+    Button:
+        text: ">>"
+        on_press: app.event_handler.on_view_press_last()
+
+    # Filtered view count
+    Label:
+        id: filter_view_count
+        size_hint: (None, 1)
+        width: '175dp'
+        text: "Search view disabled.\nShowing all entries."
+
+
+<TableRecordsPerRow@MDBoxLayout>:
+    size_hint: (1, None)
+    height: '50dp'
+
+    Label:
+        size_hint: (None, 1)
+        width: '120dp'
+        text: "Showing"
+
+    ToggleButton:
+        text: "3"
+        state: "normal"
+        group: "per_page_selection_group"
+        allow_no_selection: False
+        on_state: app.event_handler.on_view_records_per_page_state(self, 3)
+
+    ToggleButton:
+        text: "5"
+        state: "normal"
+        group: "per_page_selection_group"
+        allow_no_selection: False
+        on_state: app.event_handler.on_view_records_per_page_state(self, 5)
+
+    ToggleButton:
+        text: "10"
+        state: "down"
+        group: "per_page_selection_group"
+        allow_no_selection: False
+        on_state: app.event_handler.on_view_records_per_page_state(self, 10)
+
+    ToggleButton:
+        text: "15"
+        state: "normal"
+        group: "per_page_selection_group"
+        allow_no_selection: False
+        on_state: app.event_handler.on_view_records_per_page_state(self, 15)
+
+    Label:
+        size_hint: (None, 1)
+        width: '120dp'
+        text: "per page"
+

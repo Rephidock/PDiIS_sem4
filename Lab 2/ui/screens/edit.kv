@@ -1,0 +1,96 @@
+#:import CenteredTextInput ui.components.centered_text_input.CenteredTextInput
+#:import DataFieldInput ui.components.data_field_input.DataFieldInput
+
+
+<EditScreen@Screen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: '0dp'
+        padding: ('5dp', '5dp', '5dp', '5dp')
+
+        md_bg_color: app.theme_cls.bg_normal
+
+        #Select record
+        Label:
+            text: "Select entry"
+            bold: True
+            halign: "left"
+            size_hint: (1, None)
+            height: '40dp'
+
+        RecordControls:
+            id: record_controls
+
+        # Edit data
+        Label:
+            text: "Edit data"
+            bold: True
+            size_hint: (1, None)
+            height: '40dp'
+
+        DataFieldInput:
+            id: data_field_faculty
+            label_text: "Faculty:"
+            label_width: '150dp'
+            input_hint: "Faculty"
+            show_dropdown: True
+
+        DataFieldInput:
+            id: data_field_department
+            label_text: "Department:"
+            label_width: '150dp'
+            input_hint: "Department"
+            show_dropdown: True
+
+        DataFieldInput:
+            id: data_field_name
+            label_text: "Name:"
+            label_width: '150dp'
+            input_count: 3
+            input_hints: ("Last name (surname)", "First name", "Middle name")
+
+        DataFieldInput:
+            id: data_field_title
+            label_text: "Academic Title:"
+            label_width: '150dp'
+            input_hint: "Academic Title"
+            show_dropdown: True
+
+        DataFieldInput:
+            id: data_field_degree
+            label_text: "Scholastic Degree:"
+            label_width: '150dp'
+            input_hint: "Scholastic Degree"
+            show_dropdown: True
+
+        DataFieldInput:
+            id: data_field_years
+            label_text: "Experience Years:"
+            label_width: '150dp'
+            input_hint: "Experience Years"
+
+
+
+<RecordControls@BoxLayout>:
+    orientation: "horizontal"
+
+    CenteredTextInput:
+        id: input_index
+
+        size_hint: (None, 1)
+        width: '150dp'
+
+        multiline: False
+        hint_text: "Entry No. (index)"
+
+    Button:
+        text: "Load entry"
+        on_press: app.event_handler.on_edit_load()
+
+    Button:
+        text: "Save at index"
+        on_press: app.event_handler.on_edit_save()
+
+    Button:
+        text: "Append at the end"
+        on_press: app.event_handler.on_edit_append()

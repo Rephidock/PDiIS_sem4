@@ -1,0 +1,16 @@
+#:include ui/screens.kv
+#:include ui/tools.kv
+#:include ui/filename.kv
+
+<Root@BoxLayout>:
+    orientation: "vertical"
+    FileControls:
+        id: file_controls
+    BoxLayout:
+        orientation: "horizontal"
+        ToolScreens:
+            id: tool_screens
+        Tools:
+            id: tool_panel
+
+Root:

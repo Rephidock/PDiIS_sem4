@@ -1,0 +1,1003 @@
+<?xml version="1.0" ?>
+<teachers>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of History of Law</department>
+		<name>Yan</name>
+		<surname>Tur</surname>
+		<midname>Frolovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>6</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Computer Security</department>
+		<name>Yana</name>
+		<surname>Yurkova</surname>
+		<midname>Ivanovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>7</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Entymology</department>
+		<name>Dan</name>
+		<surname>Vorsa</surname>
+		<midname>Pavlovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Logistics</department>
+		<name>Vasilii</name>
+		<surname>Kazlov</surname>
+		<midname>Semyonovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>23</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of International Law</department>
+		<name>Stephan</name>
+		<surname>Kerget</surname>
+		<midname>Frolovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>6</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Mathematical Analysis</department>
+		<name>Oliver</name>
+		<surname>Karpenko</surname>
+		<midname>Stepanovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Computer Linguistics</department>
+		<name>Yan</name>
+		<surname>Kazlov</surname>
+		<midname>Nikolaevich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>24</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Ecology</department>
+		<name>Philip</name>
+		<surname>Brenko</surname>
+		<midname>Markovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>8</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Physical Geography</department>
+		<name>Lili</name>
+		<surname>Zaitseva</surname>
+		<midname>Pavlovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ancient World History</department>
+		<name>Victor</name>
+		<surname>Korsak</surname>
+		<midname>Vasilievich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>24</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Computer Linguistics</department>
+		<name>Anna</name>
+		<surname>Lisina</surname>
+		<midname>Markovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>8</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of History of Law</department>
+		<name>Anna</name>
+		<surname>Madich</surname>
+		<midname>Stepanovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Modeling</department>
+		<name>Dmitriy</name>
+		<surname>Brenko</surname>
+		<midname>Lvovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>7</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Game Design</department>
+		<name>Ali</name>
+		<surname>Zaitsev</surname>
+		<midname>Frolovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>13</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ethnology</department>
+		<name>Alexandar</name>
+		<surname>Golenkov</surname>
+		<midname>Frolovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>19</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Artificial Intelligence</department>
+		<name>Mira</name>
+		<surname>Karpenko</surname>
+		<midname>Markovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>16</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Mathematical Analysis</department>
+		<name>Rose</name>
+		<surname>Karsakova</surname>
+		<midname>Pavlovna</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>15</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Artificial Intelligence</department>
+		<name>Peter</name>
+		<surname>Platonov</surname>
+		<midname>Alexandrovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>9</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Logistics</department>
+		<name>Elisabeth</name>
+		<surname>Madich</surname>
+		<midname>Vasilienvna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>22</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Computer Security</department>
+		<name>Michal</name>
+		<surname>Vorsa</surname>
+		<midname>Vasilievich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>16</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Computer Security</department>
+		<name>Albert</name>
+		<surname>Korolyov</surname>
+		<midname>Sergeevich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>11</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of International Law</department>
+		<name>Dan</name>
+		<surname>Golenkov</surname>
+		<midname>Markovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>15</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Geometry</department>
+		<name>Vlad</name>
+		<surname>Kazlov</surname>
+		<midname>Yanovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>25</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Management</department>
+		<name>Philip</name>
+		<surname>Ivanov</surname>
+		<midname>Semyonovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>11</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Physical Geography</department>
+		<name>Regina</name>
+		<surname>Shuba</surname>
+		<midname>Alexandrovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Corporate Finances</department>
+		<name>Lili</name>
+		<surname>Madich</surname>
+		<midname>Frolovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>14</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ethnology</department>
+		<name>Joel</name>
+		<surname>Platonov</surname>
+		<midname>Vasilievich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>16</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Corporate Finances</department>
+		<name>Yana</name>
+		<surname>Karpenko</surname>
+		<midname>Petrovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>12</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Logistics</department>
+		<name>Vlad</name>
+		<surname>Golenkov</surname>
+		<midname>Yanovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>22</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Foreign Languages</department>
+		<name>Albert</name>
+		<surname>Radich</surname>
+		<midname>Alexandrovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>14</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Management</department>
+		<name>Lili</name>
+		<surname>Kerget</surname>
+		<midname>Vladimirovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ancient World History</department>
+		<name>Philip</name>
+		<surname>Yurkov</surname>
+		<midname>Vladimirovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>15</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Artificial Intelligence</department>
+		<name>Lili</name>
+		<surname>Radich</surname>
+		<midname>Stepanovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>23</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Foreign Languages</department>
+		<name>Lili</name>
+		<surname>Invanova</surname>
+		<midname>Nikolaevna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>13</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Ecology</department>
+		<name>Ruby</name>
+		<surname>Korolyova</surname>
+		<midname>Pavlovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>21</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Ecology</department>
+		<name>Peter</name>
+		<surname>Kazlov</surname>
+		<midname>Yanovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>15</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Physical Geography</department>
+		<name>Alexandra</name>
+		<surname>Kazlova</surname>
+		<midname>Egorovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>8</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of International Law</department>
+		<name>George</name>
+		<surname>Karpenko</surname>
+		<midname>Markovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>25</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Bank Economics</department>
+		<name>Ruby</name>
+		<surname>Vorsa</surname>
+		<midname>Lvovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>22</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Mathematical Analysis</department>
+		<name>David</name>
+		<surname>Tur</surname>
+		<midname>Cheslavovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Archeology</department>
+		<name>Dan</name>
+		<surname>Vorsa</surname>
+		<midname>Stepanovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>6</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Recent History</department>
+		<name>Regina</name>
+		<surname>Basava</surname>
+		<midname>Yanovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>14</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Archeology</department>
+		<name>Camila</name>
+		<surname>Madich</surname>
+		<midname>Vasilienvna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>25</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Foreign Languages</department>
+		<name>Victoria</name>
+		<surname>Invanova</surname>
+		<midname>Vladimirovna</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>19</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Modeling</department>
+		<name>Alexandra</name>
+		<surname>Laskevich</surname>
+		<midname>Frolovna</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>9</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Ecology</department>
+		<name>Pavel</name>
+		<surname>Vorsa</surname>
+		<midname>Vasilievich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>15</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Geometry</department>
+		<name>Max</name>
+		<surname>Ivanov</surname>
+		<midname>Lvovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Computer Linguistics</department>
+		<name>Christine</name>
+		<surname>Kazlova</surname>
+		<midname>Vladimirovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>20</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Management</department>
+		<name>Yan</name>
+		<surname>Kazlov</surname>
+		<midname>Frolovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>17</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ancient World History</department>
+		<name>Maria</name>
+		<surname>Kerget</surname>
+		<midname>Pavlovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Corporate Finances</department>
+		<name>Stephanie</name>
+		<surname>Tur</surname>
+		<midname>Sergeevna</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>18</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Computer Linguistics</department>
+		<name>Camila</name>
+		<surname>Yurkova</surname>
+		<midname>Markovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>6</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Computer Linguistics</department>
+		<name>Yan</name>
+		<surname>Kerget</surname>
+		<midname>Yanovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>17</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Entymology</department>
+		<name>Alexandar</name>
+		<surname>Kazlov</surname>
+		<midname>Frolovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>24</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Modeling</department>
+		<name>David</name>
+		<surname>Golenkov</surname>
+		<midname>Yanovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>12</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Foreign Languages</department>
+		<name>Mira</name>
+		<surname>Tur</surname>
+		<midname>Cheslavovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>17</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Corporate Finances</department>
+		<name>Stephanie</name>
+		<surname>Korsak</surname>
+		<midname>Petrovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>6</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Ecology</department>
+		<name>Anna</name>
+		<surname>Karpenko</surname>
+		<midname>Stepanovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>11</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Physical Geography</department>
+		<name>Victoria</name>
+		<surname>Brenko</surname>
+		<midname>Cheslavovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>6</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Archeology</department>
+		<name>Victoria</name>
+		<surname>Basava</surname>
+		<midname>Pavlovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>17</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of Crime Law</department>
+		<name>Yana</name>
+		<surname>Radich</surname>
+		<midname>Petrovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Foreign Languages</department>
+		<name>Stephanie</name>
+		<surname>Laskevich</surname>
+		<midname>Sergeevna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>22</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ancient World History</department>
+		<name>Elisabeth</name>
+		<surname>Invanova</surname>
+		<midname>Vladimirovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>22</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Physical Geography</department>
+		<name>Lili</name>
+		<surname>Korolyova</surname>
+		<midname>Egorovna</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>15</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Modeling</department>
+		<name>Alexandar</name>
+		<surname>Golenkov</surname>
+		<midname>Egorovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>22</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Artificial Intelligence</department>
+		<name>Anna</name>
+		<surname>Tur</surname>
+		<midname>Pavlovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>18</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Archeology</department>
+		<name>Mira</name>
+		<surname>Minina</surname>
+		<midname>Ivanovna</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Archeology</department>
+		<name>Ruby</name>
+		<surname>Karsakova</surname>
+		<midname>Stepanovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>19</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Recent History</department>
+		<name>Yan</name>
+		<surname>Karpenko</surname>
+		<midname>Frolovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>24</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Foreign Languages</department>
+		<name>Mira</name>
+		<surname>Radich</surname>
+		<midname>Alexandrovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>24</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Entymology</department>
+		<name>Vasilii</name>
+		<surname>Platonov</surname>
+		<midname>Cheslavovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>11</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Mathematical Analysis</department>
+		<name>Camila</name>
+		<surname>Zaitseva</surname>
+		<midname>Egorovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>19</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Ecology</department>
+		<name>Michal</name>
+		<surname>Kazlov</surname>
+		<midname>Vladimirovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>20</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Logistics</department>
+		<name>Lili</name>
+		<surname>Tur</surname>
+		<midname>Markovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Computer Security</department>
+		<name>George</name>
+		<surname>Kazlov</surname>
+		<midname>Vladimirovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>6</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Ecology</department>
+		<name>Albert</name>
+		<surname>Tur</surname>
+		<midname>Egorovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Entymology</department>
+		<name>Dan</name>
+		<surname>Karpenko</surname>
+		<midname>Vasilievich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>14</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Recent History</department>
+		<name>Maria</name>
+		<surname>Shuba</surname>
+		<midname>Stepanovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>9</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Geography</faculty>
+		<department>Department of Ecology</department>
+		<name>Alexandar</name>
+		<surname>Shuba</surname>
+		<midname>Sergeevich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>6</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of International Law</department>
+		<name>Philip</name>
+		<surname>Vorsa</surname>
+		<midname>Yanovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of History of Law</department>
+		<name>Anna</name>
+		<surname>Golenkova</surname>
+		<midname>Frolovna</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>25</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of International Law</department>
+		<name>Yana</name>
+		<surname>Minina</surname>
+		<midname>Stepanovna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>23</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Recent History</department>
+		<name>Regina</name>
+		<surname>Kerget</surname>
+		<midname>Vladimirovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>4</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Bank Economics</department>
+		<name>Rose</name>
+		<surname>Karpenko</surname>
+		<midname>Vladimirovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>22</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Entymology</department>
+		<name>Yan</name>
+		<surname>Lisin</surname>
+		<midname>Vladimirovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>9</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ancient World History</department>
+		<name>Stephanie</name>
+		<surname>Madich</surname>
+		<midname>Vasilienvna</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>15</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Geometry</department>
+		<name>Stanislav</name>
+		<surname>Minin</surname>
+		<midname>Nikolaevich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>18</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of History of Law</department>
+		<name>Maria</name>
+		<surname>Madich</surname>
+		<midname>Nikolaevna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Game Design</department>
+		<name>Ali</name>
+		<surname>Shuba</surname>
+		<midname>Petrovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>18</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Law</faculty>
+		<department>Department of History of Law</department>
+		<name>Dmitriy</name>
+		<surname>Kazlov</surname>
+		<midname>Pavlovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Mathematics</faculty>
+		<department>Department of Geometry</department>
+		<name>Regina</name>
+		<surname>Yurkova</surname>
+		<midname>Egorovna</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>14</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Foreign Languages</department>
+		<name>Stephan</name>
+		<surname>Vorsa</surname>
+		<midname>Alexandrovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>24</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Bank Economics</department>
+		<name>Ali</name>
+		<surname>Madich</surname>
+		<midname>Invanovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>20</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Computer Science</faculty>
+		<department>Department of Artificial Intelligence</department>
+		<name>Alexandra</name>
+		<surname>Karsakova</surname>
+		<midname>Yanovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>15</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ethnology</department>
+		<name>George</name>
+		<surname>Kerget</surname>
+		<midname>Lvovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>10</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Computer Linguistics</department>
+		<name>Ali</name>
+		<surname>Karsakov</surname>
+		<midname>Frolovich</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>22</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Ancient World History</department>
+		<name>Vlad</name>
+		<surname>Ivanov</surname>
+		<midname>Semyonovich</midname>
+		<academic_title>Researcher</academic_title>
+		<scholastic_degree>Bachelor</scholastic_degree>
+		<experience_years>25</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Economics</faculty>
+		<department>Department of Management</department>
+		<name>Vlad</name>
+		<surname>Korsak</surname>
+		<midname>Alexandrovich</midname>
+		<academic_title>Lecturer</academic_title>
+		<scholastic_degree>Master</scholastic_degree>
+		<experience_years>5</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of Linguistics</faculty>
+		<department>Department of Foreign Languages</department>
+		<name>Lili</name>
+		<surname>Madich</surname>
+		<midname>Vladimirovna</midname>
+		<academic_title>Associate Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>18</experience_years>
+	</teacher>
+	<teacher>
+		<faculty>Faculty of History</faculty>
+		<department>Department of Recent History</department>
+		<name>Albert</name>
+		<surname>Yurkov</surname>
+		<midname>Pavlovich</midname>
+		<academic_title>Professor</academic_title>
+		<scholastic_degree>Professor</scholastic_degree>
+		<experience_years>13</experience_years>
+	</teacher>
+</teachers>

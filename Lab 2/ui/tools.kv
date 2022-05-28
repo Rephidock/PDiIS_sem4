@@ -1,0 +1,38 @@
+<Tools@MDBoxLayout>:
+    
+    # If Gridlayout
+    #cols: 1
+    #orientation: "lr-tb"
+
+    # If Boxlayout
+    orientation: "vertical"
+
+    size_hint: (None, 1)
+    width: '100dp'
+
+    spacing: '5dp'
+    padding: ('5dp', '0dp', '5dp', '5dp')
+
+    md_bg_color: app.theme_cls.bg_light
+
+    ToggleButton:
+        id: tool_button_view
+        text: "View"
+        state: "down"
+        group: "tool_selection_group"
+        allow_no_selection: False
+        on_state: app.event_handler.on_tool_button_state(self, "view")
+
+    ToggleButton:
+        id: tool_button_edit
+        text: "Add\n\nEdit"
+        group: "tool_selection_group"
+        allow_no_selection: False
+        on_state: app.event_handler.on_tool_button_state(self, "edit")
+
+    ToggleButton:
+        id: tool_button_search
+        text: "Search\n\nRemove"
+        group: "tool_selection_group"
+        allow_no_selection: False
+        on_state: app.event_handler.on_tool_button_state(self, "search")

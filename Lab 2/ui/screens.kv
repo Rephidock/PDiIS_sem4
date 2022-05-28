@@ -1,0 +1,20 @@
+#:import CardTransition kivy.uix.screenmanager.CardTransition
+
+#:include ui/screens/view.kv
+#:include ui/screens/edit.kv
+#:include ui/screens/search.kv
+
+
+<ToolScreens@ScreenManager>:
+
+    transition: CardTransition()
+
+    ViewScreen:
+        id: screen_view
+        name: "screen_view"
+    EditScreen:
+        id: screen_edit
+        name: "screen_edit"
+    SearchScreen:
+        id: screen_search
+        name: "screen_search"

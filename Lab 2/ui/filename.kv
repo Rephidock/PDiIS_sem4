@@ -1,0 +1,36 @@
+#:import CenteredTextInput ui.components.centered_text_input.CenteredTextInput
+
+
+<FileControls@MDBoxLayout>:
+
+    size_hint: (1, None)
+    height: '50dp'
+
+    orientation: "horizontal"
+    spacing: '5dp'
+    padding: ('5dp', '5dp', '5dp', '5dp')
+
+    md_bg_color: app.theme_cls.bg_light
+
+    CenteredTextInput:
+        id: text_input
+
+        multiline: False
+        hint_text: "Save/Load location"
+
+        on_text_validate: app.event_handler.on_filename_change(self)
+
+
+    Button:
+        size_hint: (None, 1)
+        width: '90dp'
+        text: "Save"
+
+        on_press: app.event_handler.on_save_press()
+
+    Button:
+        size_hint: (None, 1)
+        width: '90dp'
+        text:  "Load"
+
+        on_press: app.event_handler.on_load_press()
